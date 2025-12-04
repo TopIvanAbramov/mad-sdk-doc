@@ -1,11 +1,13 @@
 # InApp
 
-InApp реклама предназначена для показа попапов по тригеру
+In‑App реклама — это всплывающие окна внутри приложения, где можно разместить изображение, кнопку с диплинком или копирование промокода. Такой формат помогает привлекать внимание пользователей и повышать конверсии прямо в интерфейсе приложения поверх любого экрана.
 
 
 # 1. Создаем загрузчик рекламы
 
 ```swift
+import MadsSDK
+
 private let loader = InAppAdLoader()
 private var loadedInAppAd: InAppAd?
 ```
@@ -13,6 +15,14 @@ private var loadedInAppAd: InAppAd?
 
 # 2. Подписываемся на состояние загрузчика
 
+Проставляем делег у загрузчика:
+
+
+```swift
+loader.delegate = self
+```
+
+Реализуем протокол:
 
 ```swift
 extension ViewController: InAppAdLoaderDelegate {
@@ -31,14 +41,16 @@ extension ViewController: InAppAdLoaderDelegate {
 
 ```swift
 loader.load(
-    padId: "",
+    padId: 1,
     targetings: [
         "some_targeting": "value"
     ]
 )
 ```
 
-# 4. Сохраняем загруженную рекламу и подписываемся на изменения состояния
+# 4. Подписываемся на состояния inApp рекламы
+
+Проставляем делег у рекламого объекта:
 
 ```swift
 inAppAd.delegate = self
@@ -51,15 +63,17 @@ self.inAppAd = inAppAd
 extension ViewController: InAppAdDelegate {
     func inAppAd(_ ad: InAppAd, didEmit event: InAppAd.Event) {
         switch event {
-        case .visible:
+        case .adShown:
             break
-        case let .deeplinkButtonClicked(uRL):
+        case .adFailedToShow:
             break
-        case let .promocodeButtonClicked(promocode)
+        case let .adDeeplinkClicked(uRL):
+            break
+        case let .adPromocodeClicked(promocode)
             break
         case let .error(error):
            break
-        case .closed:
+        case .adDismissed:
             break
         }
     }
