@@ -25,7 +25,7 @@ import ru.tander.mads.inapp.loading.InAppAdRequest
 val inAppAdRequest = InAppAdRequest(
     padId = TODO("Идентификатор места показа рекламы"),
     debugCreative = false, // true - если нужно загрузить отладочный рекламный креатив.
-    otherParams = emptyMap(), // дополнительные параметры для загрузки рекламы.
+    targetings = emptyMap(), // параметры таргетингов.
 )
 ```
 
