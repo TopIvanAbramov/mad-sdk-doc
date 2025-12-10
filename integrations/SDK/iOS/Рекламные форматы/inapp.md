@@ -70,15 +70,15 @@ self.inAppAd = inAppAd
 extension ViewController: InAppAdDelegate {
     func inAppAd(_ ad: InAppAd, didEmit event: InAppAd.Event) {
         switch event {
-        case .adShown:
+        case .shown:
             break
-        case .adFailedToShow:
+        case .failedToShow:
             break
-        case let .adDeeplinkClicked(uRL):
+        case let .deeplinkClicked(uRL):
             break
-        case let .adPromocodeClicked(promocode)
+        case let .promocodeClicked(promocode)
             break
-        case .adDismissed:
+        case .dismissed:
             break
         }
     }
