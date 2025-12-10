@@ -1,3 +1,8 @@
+---
+label: In‑App реклама
+order: 1
+---
+
 # InApp
 
 ![|300x200](./inapp-preview.png){height="100"}
@@ -52,7 +57,7 @@ loader.load(
 
 # 4. Подписываемся на состояния InApp рекламы
 
-Проставляем делег у рекламого объекта:
+Проставляем делегат у рекламого объекта:
 
 ```swift
 inAppAd.delegate = self
