@@ -1,5 +1,5 @@
 ---
-label: In‑App реклама
+label: InApp
 order: 1
 ---
 
@@ -99,8 +99,12 @@ MadsSDK.showInAppAd(inAppAd, inVC: self)
 
 | Название параметра | Значение | Описание |
 |----------|----------|----------|
+| backgroundColor | Color | цвет фона диалога с рекламой
 | primaryColor | Color | цвет для кнопки с диплинком |
+| primaryButtonContentColor | Color | цвет контента на кнопке с диплинком |
 | secondaryColor | Color| цвет для кнопки с промокодом |
+| secondaryButtonContentColor | Color | цвет контента на кнопке с промокодом |
+| loaderColor | Color | цвет прогресс-бара на диалоге с рекламой |
 | cornerRadius | CGFloat | скругления кнопок|
 
 
@@ -117,9 +121,9 @@ MadsSDK.showInAppAd(inAppAd, inVC: self)
 
 ```swift
 let uiConfig = UIConfiguration(
-        primaryColor: .uiColor(UIColor.red),
-        secondaryColor: .uiColor(UIColor.grey),
-        cornerRadius: 15
+    primaryColor: .uiColor(UIColor.red),
+    secondaryColor: .uiColor(UIColor.grey),
+    cornerRadius: 15
 )
 
 MadsSDK.showInAppAd(

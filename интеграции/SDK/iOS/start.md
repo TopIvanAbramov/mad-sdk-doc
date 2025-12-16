@@ -20,7 +20,13 @@ SDK работает по принципу "тонкого клиента": вс
 
 # 1. Добавление зависимостей
 
-На данный момент для интеграции нужно добавить XCFramework в приложение. Фреймворк передаст команда разработки Mad SDK. В дальнейшем подключение будет через SPM пакеты
+- В XCode проекте необходимо добавить пакет File -> Add Packages dependencies
+
+- Укажите URL репозитория с Swift Package:
+
+```console
+https://github.com/magnit-tech/mads-ios-sdk
+```
 
 # 2. Быстрый старт
 
@@ -29,26 +35,21 @@ SDK работает по принципу "тонкого клиента": вс
 Сначала необходимо инициализировать SDK. Это лучше всего делать в классе SceneDelegate или в AppDelegate.
 
 ```swift
-immport MadsSDK
+import MadSDK
 
-MadsSDK.initialize(
-    Configuration(
-        isDebugLogsEnabled: true,
-        isDebugCreativeEnabled: true
-    )
-)
+MadsSDK.initialize()
 ```
 
 Для получения дебаг логов в консоль нужно включить флаг isDebugLogsEnabled:
 
 ```swift
-isDebugLogsEnabled: true
+MadsSDK.isDebugLogsEnabled = true
 ```
 
 Чтобы получить тестовый креатив нужно включить флаг isDebugCreativeEnabled
 
 ```swift
-isDebugCreativeEnabled: true
+MadsSDK.isDebugCreativeEnabled = true
 ```
 
 ### 2. Идентификация пользователя
@@ -56,7 +57,5 @@ isDebugCreativeEnabled: true
 Когда пользователь входит в систему, важно связать его действия, совершенные анонимно, с его постоянным профилем. Для этого важно указать User id
 
 ```swift
-MadsSDK.update(
-    userId: "sample-user-id"
-)
+MadsSDK.userId = "sample-user-id"
 ```
