@@ -20,7 +20,7 @@ SDK работает по принципу "тонкого клиента": вс
 
 # 1. Добавление зависимостей
 
-- В XCode проекте необходимо добавить пакет File -> Add Packages dependencies
+- В XCode проекте необходимо добавить пакет File -> Add Package dependencies
 
 - Укажите URL репозитория с Swift Package. Рекомендуем зафиксировать определенную версию библиотеки
 
@@ -69,3 +69,9 @@ MadsSDK.isDebugCreativeEnabled = true
 ```swift
 MadsSDK.userId = "sample-user-id"
 ```
+
+
+## Пример интеграции SDK
+
+Пример интеграции SDK можно посмотреть в [репозитории на GitHub](https://github.com/magnit-tech/mads-ios-sdk)
+
