@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-    implementation("ru.tander.mads:integration:MADS-SNAPSHOT")
+    implementation("ru.tander.mads:integration:0.0.1")
 }
 ```
 
