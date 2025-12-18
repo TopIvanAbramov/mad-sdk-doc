@@ -22,11 +22,21 @@ SDK работает по принципу "тонкого клиента": вс
 
 - В XCode проекте необходимо добавить пакет File -> Add Packages dependencies
 
-- Укажите URL репозитория с Swift Package:
+- Укажите URL репозитория с Swift Package. Рекомендуем зафиксировать определенную версию библиотеки
 
 ```console
 https://github.com/magnit-tech/mads-ios-sdk
 ```
+
+
+![|800x200](./package.png)
+
+
+
+Убедитесь, что MadSDK прилинковано к таргету вашего приложения
+
+![|800x200](./linking.png)
+
 
 # 2. Быстрый старт
 
