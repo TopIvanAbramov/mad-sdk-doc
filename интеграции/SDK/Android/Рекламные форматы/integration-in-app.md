@@ -69,13 +69,24 @@ Mads.showInAppAd(
 )
 ```
 
+## 5. Отладка интеграции
+
+Для отладки интеграции In-App рекламы можно использовать отладочный рекламный креатив:
+```kotlin
+import ru.tander.mads.inapp.loading.InAppAdRequest
+
+val inAppAdRequest = InAppAdRequest(
+    padId = "1",
+    debugCreative = true,
+)
+```
+
 ## (опционально) Реакция на события показа рекламы
 
 Если интегрирующему приложению нужно следить за событиями показа рекламы - приложение может вызвать метод `Mads#subscribeToInAppAdShowingEvents`, передав ему в качестве аргумента соответствующий колбэк:
 ```kotlin
 import ru.tander.mads.Mads
 import ru.tander.mads.inapp.showing.events.InAppAdShowingEventsCallback
-import ru.tander.mads.inapp.showing.events.InAppAdShowingEventsSubscription
 
 val inAppAdShowingEventsCallback = object : InAppAdShowingEventsCallback {
 
