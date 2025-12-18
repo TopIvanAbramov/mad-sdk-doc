@@ -118,3 +118,7 @@ inAppAdShowingEventsSubscription.cancel()
 | secondaryButtonColor        | цвет фона для кнопки с промокодом        |
 | secondaryButtonContentColor | цвет контента на кнопке с промокодом     |
 | loaderColor                 | цвет прогресс-бара на диалоге с рекламой |
+
+## Пример интеграции In-App рекламы
+
+Пример интеграции In-App рекламы можно посмотреть в [репозитории на GitHub](https://github.com/magnit-tech/mads-android-sdk).
