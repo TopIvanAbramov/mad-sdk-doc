@@ -1,4 +1,7 @@
-# InApp
+---
+label: InApp
+order: 1
+---
 
 ![|300x200](./inapp-preview.png){height="100"}
 
