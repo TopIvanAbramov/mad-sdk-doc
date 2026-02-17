@@ -135,3 +135,16 @@ MadsSDK.showInAppAd(
     uiConfig: uiConfig
 )
 ```
+
+# 6. Отладка интеграции
+
+Для отладки интеграции In-App рекламы можно использовать отладочный рекламный креатив:
+
+```swift
+loader.load(
+    padId: 1,
+    targetings: [
+        "some_targeting": "value"
+    ]
+)
+```
