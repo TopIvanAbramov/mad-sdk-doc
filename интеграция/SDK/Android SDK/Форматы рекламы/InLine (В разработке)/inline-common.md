@@ -1,10 +1,7 @@
 ---
-label: InLine
+label: Общая информация
 order: 1
 ---
-
-# InLine
-
 
 ![|400x400](./inline.png){height="200"}
 
