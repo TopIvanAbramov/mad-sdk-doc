@@ -56,13 +56,24 @@ extension ViewController: InAppAdLoaderDelegate {
 
 ```swift
 loader.load(
-    padId: 1,                     // идентификатор места показа рекламы
-    targetings: [                 // параметры таргетингов.
+    padId: 1,
+    targetings: [
         "some_targeting": "value"
     ],
-    isDebugCreativeEnabled: false // true - если нужно загрузить отладочный рекламный креатив.
+    isDebugCreativeEnabled: false
 )
 ```
+
+### Параметры:
+
+| Название                | Тип               | Обязательный | Описание                                                                      |
+|--------------------------|--------------------|:----:|----------------------------------------------------------------------------------|
+| `padId`                  | `Int`              | ✅   | Id места размещения                    |
+| `targetings`             | `[String: String]` | ✅   | Словарь таргетингов для персонализации рекламы          |
+| `isDebugCreativeEnabled` | `Bool`             | ❌   | Регулирует загрузку дебаг креативов (дефолтное значение: `false`). |
+
+---
+
 
 ## 3. Таргетирование рекламы
 
@@ -87,10 +98,19 @@ loader.load(
 
 ```swift
 MadsSDK.showInAppAd(
-  inAppAd,    // объявление, загруженное на шаге 3
-  inVC: self  // UIViewcontroller, поверх которого покажется попап
+  inAppAd,
+  inVC: self
 )
 ```
+
+### Параметры:
+
+| Parameter        | Type              | Req. | Description                                                                                    |
+|------------------|-------------------|:----:|------------------------------------------------------------------------------------------------|
+| `_ ad`             | `InAppAd`         | ✅   | Реклама, загруженная на шаге 3                |
+| `viewController` | `UIViewController`| ✅   | UIViewcontroller, поверх которого покажется модальное окно                       |
+| `uiConfig`       | `UIConfiguration` | ❌   | UI конфигурация для кастомизации рекламы (дефолтное значение: `.default`). |
+
 
 ## 5. Реакция на события с рекламой
 
@@ -114,7 +134,7 @@ extension ViewController: InAppAdDelegate {
         case .failedToShow:
             break
         case let .deeplinkClicked(uRL):
-            break
+            break // необходимо обработать открытие диплинка на интегрирующей стороне 
         case let .promocodeClicked(promocode)
             break
         case .dismissed:
