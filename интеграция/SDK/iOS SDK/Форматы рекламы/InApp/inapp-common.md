@@ -1,13 +1,15 @@
 ---
-label: InApp
+label: Общая информация
 order: 1
 ---
 
-# InApp
-
-![|300x200](./inapp-preview.png){height="100"}
+# Общая информация
 
 In‑App реклама — это всплывающие окна внутри приложения, где можно разместить изображение, кнопку с диплинком или копирование промокода. Такой формат помогает привлекать внимание пользователей и повышать конверсии прямо в интерфейсе приложения поверх любого экрана.
+
+Внешний вид 
+
+![|300x200](./inapp-preview.png){height="100"}
 
 
 # 1. Инициализация загрузчика рекламы
@@ -132,48 +134,6 @@ extension ViewController: InAppAdDelegate {
 loader.load(
     padId: 1,                    // отладочный padId 
     isDebugCreativeEnabled: true // включаем загрузку тестового креатива
-)
-```
-
-
-# 7. Кастомизация UI
-
-Для кастомизации возможно поменять цвета кнопок и скругления. В будущем появится возможность указать кастомный шрифт.
-
-
-| Название параметра | Значение | Описание |
-|----------|----------|----------|
-| backgroundColor | Color | цвет фона диалога с рекламой
-| primaryColor | Color | цвет для кнопки с диплинком |
-| primaryButtonContentColor | Color | цвет контента на кнопке с диплинком |
-| secondaryColor | Color| цвет для кнопки с промокодом |
-| secondaryButtonContentColor | Color | цвет контента на кнопке с промокодом |
-| loaderColor | Color | цвет прогресс-бара на диалоге с рекламой |
-| cornerRadius | CGFloat | скругления кнопок|
-
-
-Цвет можно указать через hex строку (#ff0000) или UIColor
-
-```swift
-    public enum Color {
-        case hex(String)
-        case uiColor(UIColor)
-    }
-```
-
-Чтобы применить кастомизацию необходимо передать передать конфиг в метод показа InApp рекламы:
-
-```swift
-let uiConfig = UIConfiguration(
-    primaryColor: .uiColor(UIColor.red),
-    secondaryColor: .uiColor(UIColor.grey),
-    cornerRadius: 15
-)
-
-MadsSDK.showInAppAd(
-    inAppAd,
-    inVC: self,
-    uiConfig: uiConfig
 )
 ```
 
