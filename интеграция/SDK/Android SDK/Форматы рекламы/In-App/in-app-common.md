@@ -167,7 +167,7 @@ inAppAdShowingEventsSubscription.cancel()
 import ru.tander.mads.inapp.loading.InAppAdRequest
 
 val inAppAdRequest = InAppAdRequest(
-    padId = "1",          // отладочный padId 
+    padId = 1,          // отладочный padId 
     debugCreative = true, // включаем загрузку тестового креатива
 )
 ```
