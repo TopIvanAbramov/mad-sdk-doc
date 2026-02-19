@@ -3,6 +3,8 @@ label: Modal Window
 order: 1
 ---
 
+![|300x200](./inapp-preview.png){height="100"}
+
 
 ## 1. Описание
 
