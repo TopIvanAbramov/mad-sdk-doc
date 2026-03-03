@@ -17,18 +17,26 @@ MADS — это омниканальная рекламная платформа
 * Получать аналитику по показам, кликам, конверсиям и доходности
 * Отслеживать эффективность использования рекламного инвентаря ритейлера
 
+## Начало работы
+
+- **[Базовая инструкция для паблишеров](getting-started/publishers-guide.md)** — регистрация, настройка плейсментов, запуск
+- **[Способы интеграции](getting-started/integration-ways.md)** — Mobile SDK, Web SDK, API
+
 ## Варианты интеграции
 
 | Платформа | Описание | Статус |
 |-----------|----------|--------|
-| [Android](android/index.md) | Интеграция SDK в Android-приложение | ✅ Доступно |
-| [iOS](ios/index.md) | Интеграция SDK в iOS-приложение | ✅ Доступно |
+| [Android](интеграция/Mobile SDK/Android SDK/index.md) | Интеграция SDK в Android-приложение | ✅ Доступно |
+| [iOS](интеграция/Mobile SDK/iOS SDK/index.md) | Интеграция SDK в iOS-приложение | ✅ Доступно |
 | [Web](web/index.md) | Установка JS-скрипта на сайт | 🔜 В разработке |
+| [API](интеграция/API/index.md) | Прямые запросы по pad_id | ✅ Доступно |
 
 ## Структура документации
 
+- **[Начало работы](getting-started/index.md)** — базовая инструкция, способы интеграции
 - **[Ключевые концепции](concepts/index.md)** — Рекламные форматы, таргетирование, маркировка, статистика
-- **[Android SDK](android/index.md)** — Быстрый старт, In App, InLine, отладка
-- **[iOS SDK](ios/index.md)** — Быстрый старт, In App, InLine, отладка
+- **[Интеграция](интеграция/index.md)** — Mobile SDK, Web SDK, API
+- **[Android SDK](интеграция/Mobile SDK/Android SDK/index.md)** — Быстрый старт, In App, InLine, отладка
+- **[iOS SDK](интеграция/Mobile SDK/iOS SDK/index.md)** — Быстрый старт, In App, InLine, отладка
 - **[Web](web/index.md)** — Интеграция на сайт *(в разработке)*
 - **[Ресурсы](resources/index.md)** — Changelog, FAQ, глоссарий

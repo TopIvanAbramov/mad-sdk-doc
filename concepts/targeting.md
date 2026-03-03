@@ -27,5 +27,5 @@ icon: filter
 
 Таргетинги передаются в виде словаря `[String: String]` при вызове метода загрузки рекламы. Подробнее:
 
-- [Android — загрузка рекламы](../android/in-app.md)
-- [iOS — загрузка рекламы](../ios/in-app.md)
+- [Android — загрузка рекламы](../интеграция/Mobile SDK/Android SDK/in-app.md)
+- [iOS — загрузка рекламы](../интеграция/Mobile SDK/iOS SDK/in-app.md)

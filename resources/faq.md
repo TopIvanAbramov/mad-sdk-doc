@@ -16,7 +16,7 @@ icon: question
 
 ## Как проверить, что интеграция работает корректно?
 
-Используйте тестовый рекламный креатив с `debugCreative = true`. Подробнее — в разделах отладки для [Android](../android/debugging.md) и [iOS](../ios/debugging.md).
+Используйте тестовый рекламный креатив с `debugCreative = true`. Подробнее — в разделах отладки для [Android](../интеграция/Mobile SDK/Android SDK/debugging.md) и [iOS](../интеграция/Mobile SDK/iOS SDK/debugging.md).
 
 ## Где посмотреть статистику показов?
 
