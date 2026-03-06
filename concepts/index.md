@@ -1,6 +1,6 @@
 ---
 icon: light-bulb
-order: 100
+order: 40
 ---
 
 # :icon-light-bulb: Ключевые концепции

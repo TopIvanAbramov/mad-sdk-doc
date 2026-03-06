@@ -1,6 +1,6 @@
 ---
 icon: book
-order: 50
+order: 20
 ---
 
 # :icon-book: Дополнительные ресурсы

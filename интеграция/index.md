@@ -1,6 +1,6 @@
----
+<!-- ---
 label: Интеграция
-order: 80
+order: 60
 icon: plug
 ---
 
@@ -13,7 +13,7 @@ icon: plug
 | Способ | Описание | Документация |
 |--------|----------|--------------|
 | **Mobile SDK** | Android и iOS приложения | [Android SDK](Mobile SDK/Android SDK/index.md) |[iOS SDK](Mobile SDK/iOS SDK/index.md) |
-| **Web SDK** | Веб-сайты | [Web](../web/index.md) |
+| **Web SDK** | Веб-сайты | [Web](Web/index.md) |
 | **API** | Прямые запросы по pad_id | [API интеграция](API/index.md) |
 
 ## Mobile SDK
@@ -25,7 +25,7 @@ icon: plug
 
 ## Web SDK
 
-Интеграция через JavaScript для веб-сайтов. [Подробнее](../web/index.md)
+Интеграция через JavaScript для веб-сайтов. [Подробнее](Web/index.md)
 
 ## API
 
@@ -33,4 +33,4 @@ icon: plug
 
 - [Начало работы с API](API/index.md)
 - [Модели данных](API/models/index.md)
-- [API Reference](API/api-reference.md)
+- [API Reference](API/api-reference.md) -->

@@ -1,7 +1,7 @@
 ---
 label: Начало работы
-order: 50
-icon: rocket
+order: 80
+icon: home
 ---
 
 # Начало работы

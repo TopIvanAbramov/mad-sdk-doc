@@ -1,6 +1,6 @@
 {
   "version": "3.11.0",
-  "created": "2026-03-03T14:11:58Z",
+  "created": "2026-03-06T12:23:50Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -50,10 +50,19 @@
       "path": "concepts/analytics/index.html"
     },
     {
+      "path": "concepts/inapp-preview.png"
+    },
+    {
       "path": "concepts/index.html"
     },
     {
       "path": "concepts/marking-info.png"
+    },
+    {
+      "path": "concepts/multiformat-preview.png"
+    },
+    {
+      "path": "concepts/stories.png"
     },
     {
       "path": "concepts/targeting/index.html"
@@ -113,6 +122,9 @@
     {
       "path": "ios/stories.png",
       "old": true
+    },
+    {
+      "path": "mads.png"
     },
     {
       "path": "multiformat/index.html",
@@ -183,7 +195,8 @@
       "old": true
     },
     {
-      "path": "web/index.html"
+      "path": "web/index.html",
+      "old": true
     },
     {
       "path": "интеграция/api/ad-formats/index.html",
@@ -243,6 +256,9 @@
     },
     {
       "path": "интеграция/API/models/reklamnye-formaty/inapp/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/inapp/modalwindow/index.html"
     },
     {
       "path": "интеграция/API/models/reklamnye-formaty/index.html"
@@ -447,6 +463,9 @@
     {
       "path": "интеграция/sdk/ios-sdk/index.html",
       "old": true
+    },
+    {
+      "path": "интеграция/Web/index.html"
     }
   ]
 }
