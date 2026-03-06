@@ -86,6 +86,12 @@ paths:
             type: string
             enum: [2G, 3G, 4G, 5G, unknown]
           description: Тип соединения. Опционально, если запрос не из приложения
+        - name: debug_creative
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Получить ли дебаг-креатив
       responses:
         '200':
           description: Реклама найдена
