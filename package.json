@@ -6,7 +6,7 @@
     "@redocly/cli": "^1.25.0"
   },
   "scripts": {
-    "build:api": "npx @redocly/cli build-docs интеграция/API/schemas/openapi.yaml -o docs/api-reference.html --title \"MADS API Reference\"",
+    "build:api": "npx @redocly/cli build-docs интеграция/API/schemas/openapi.yaml -o docs/api-reference.html --title \"MADS API Reference\" --config redocly.yaml",
     "build": "retype build && npm run build:api"
   }
 }
