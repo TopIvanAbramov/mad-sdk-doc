@@ -11,4 +11,5 @@ exclude:
   - "интеграция/API/API рекламной платформы/простановка-атрибутов-пользователя.md"
 
 branding:
-  title: Mad SDK
+  title: MADS
+

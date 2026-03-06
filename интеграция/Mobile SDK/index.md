@@ -4,7 +4,7 @@ order: 5
 icon: device-mobile
 ---
 
-# Mobile SDK
+#  Рекламная платформа MADS
 
 Интеграция MADS SDK в мобильные приложения.
 
