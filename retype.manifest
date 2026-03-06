@@ -1,6 +1,6 @@
 {
   "version": "3.11.0",
-  "created": "2026-03-06T12:23:50Z",
+  "created": "2026-03-06T12:43:33Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -331,7 +331,8 @@
       "old": true
     },
     {
-      "path": "интеграция/Mobile-SDK/Android-SDK/in-app/index.html"
+      "path": "интеграция/Mobile-SDK/Android-SDK/in-app/index.html",
+      "old": true
     },
     {
       "path": "интеграция/mobile-sdk/android-sdk/inapp-preview.png",
@@ -359,7 +360,8 @@
       "old": true
     },
     {
-      "path": "интеграция/Mobile-SDK/Android-SDK/inline/index.html"
+      "path": "интеграция/Mobile-SDK/Android-SDK/inline/index.html",
+      "old": true
     },
     {
       "path": "интеграция/mobile-sdk/android-sdk/quickstart/index.html",
@@ -374,6 +376,15 @@
     },
     {
       "path": "интеграция/Mobile-SDK/Android-SDK/stories.png"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/Рекламные-форматы/In-App-Message/modal-window/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/Рекламные-форматы/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/Рекламные-форматы/InLine/multiformat/index.html"
     },
     {
       "path": "интеграция/mobile-sdk/index.html",
@@ -394,7 +405,8 @@
       "old": true
     },
     {
-      "path": "интеграция/Mobile-SDK/iOS-SDK/in-app/index.html"
+      "path": "интеграция/Mobile-SDK/iOS-SDK/in-app/index.html",
+      "old": true
     },
     {
       "path": "интеграция/mobile-sdk/ios-sdk/inapp-preview.png",
@@ -422,7 +434,8 @@
       "old": true
     },
     {
-      "path": "интеграция/Mobile-SDK/iOS-SDK/inline/index.html"
+      "path": "интеграция/Mobile-SDK/iOS-SDK/inline/index.html",
+      "old": true
     },
     {
       "path": "интеграция/mobile-sdk/ios-sdk/linking.png",
@@ -451,6 +464,15 @@
     },
     {
       "path": "интеграция/Mobile-SDK/iOS-SDK/stories.png"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/In-App-Message/modal-window/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/InLine/multiformat/index.html"
     },
     {
       "path": "интеграция/sdk/android-sdk/index.html",

@@ -67,6 +67,6 @@ fun onUserIdUpdated(userId: String) {
 
 ## Что дальше?
 
-- [In App Message](in-app.md) — показ всплывающей рекламы
-- [InLine](inline.md) — встраивание рекламных блоков в контент
+- [In App Message (ModalWindow)](Рекламные форматы/In App Message/modal-window.md) — показ всплывающей рекламы
+- [InLine (Multiformat)](Рекламные форматы/InLine/multiformat.md) — встраивание рекламных блоков в контент
 - [Отладка](debugging.md) — тестирование интеграции
