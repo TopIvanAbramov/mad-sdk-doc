@@ -12,81 +12,97 @@ paths:
   /v1/ads/get:
     get:
       summary: Получение рекламных форматов
-      description: Запрос рекламных креативов по идентификатору плейсмента (pad_id). API не требует авторизации.
+      description: Запрос рекламных креативов по идентификатору плейсмента (padId). API не требует авторизации.
       operationId: getAds
       parameters:
-        - name: pad_id
+        - name: padId
           in: query
           required: true
           schema:
-            type: string
-          description: Идентификатор рекламного плейсмента
-        - name: user_id
+            type: integer
+          description: Идентификатор плейсмента
+        - name: userId
           in: query
           required: false
           schema:
             type: string
-          description: Идентификатор пользователя на вашей стороне (для персонализации и статистики)
+          description: Ваш идентификатор пользователя
         - name: gaid
           in: query
           required: false
           schema:
             type: string
             format: uuid
-          description: Рекламный идентификатор на Android. Опционально, если запрос не из приложения
+          description: Рекламный идентификатор устройства Android
         - name: idfa
           in: query
           required: false
           schema:
             type: string
             format: uuid
-          description: Рекламный идентификатор на iOS. Опционально, если запрос не из приложения
-        - name: bundle_id
+          description: Рекламный идентификатор устройства iOS
+        - name: bundleId
           in: query
           required: false
           schema:
             type: string
-          description: Bundle id / app package приложения. Опционально, если запрос не из приложения
-        - name: device_id
+          description: ID сборки (для отладки и контроля качества)
+        - name: deviceId
           in: query
           required: false
           schema:
             type: string
-            format: uuid
-          description: Идентификатор устройства. Опционально, если запрос не из приложения
-        - name: app_version
+          description: Сгенерированный постоянный идентификатор устройства (используется, если невозможно отправить gaid/idfa)
+        - name: appVersion
           in: query
           required: false
           schema:
             type: string
-          description: Версия приложения. Опционально, если запрос не из приложения
-        - name: sdk_version
+          description: Версия вашего приложения
+        - name: sdkVersion
           in: query
           required: false
           schema:
             type: string
-          description: Версия SDK. Опционально, если запрос не из приложения
-        - name: os_name
+          description: Версия рекламного SDK
+        - name: osName
           in: query
           required: false
           schema:
             type: string
-            enum: [ios, android]
-          description: Название ОС. Опционально, если запрос не из приложения
-        - name: os_version
+          description: Название операционной системы пользователя
+        - name: osVersion
           in: query
           required: false
           schema:
             type: string
-          description: Версия ОС. Опционально, если запрос не из приложения
-        - name: connection_type
+          description: Версия операционной системы
+        - name: connectionType
           in: query
           required: false
           schema:
             type: string
-            enum: [2G, 3G, 4G, 5G, unknown]
-          description: Тип соединения. Опционально, если запрос не из приложения
-        - name: debug_creative
+            enum: [wifi, 3g, 4g, 5g]
+          description: Тип подключения к интернету
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Тематическая или товарная категория внутри вашего приложения
+        - name: searchQuery
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Поисковый запрос внутри приложения или на сайте
+        - name: utcOffset
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Часовой пояс пользователя относительно UTC (в минутах)
+        - name: debugCreative
           in: query
           required: false
           schema:

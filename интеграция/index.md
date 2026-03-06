@@ -14,7 +14,7 @@ icon: plug
 |--------|----------|--------------|
 | **Mobile SDK** | Android и iOS приложения | [Android SDK](Mobile SDK/Android SDK/index.md) |[iOS SDK](Mobile SDK/iOS SDK/index.md) |
 | **Web SDK** | Веб-сайты | [Web](Web/index.md) |
-| **API** | Прямые запросы по pad_id | [API интеграция](API/index.md) |
+| **API** | Прямые запросы по padId | [API интеграция](API/index.md) |
 
 ## Mobile SDK
 
@@ -29,7 +29,7 @@ icon: plug
 
 ## API
 
-Интеграция без SDK: запросы к API с указанием `pad_id` плейсмента. Подходит для кастомных решений и видео-плееров.
+Интеграция без SDK: запросы к API с указанием `padId` плейсмента. Подходит для кастомных решений и видео-плееров.
 
 - [Начало работы с API](API/index.md)
 - [Модели данных](API/models/index.md)
