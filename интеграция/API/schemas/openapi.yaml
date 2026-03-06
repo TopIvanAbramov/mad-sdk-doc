@@ -27,6 +27,65 @@ paths:
           schema:
             type: string
           description: Идентификатор пользователя на вашей стороне (для персонализации и статистики)
+        - name: gaid
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Рекламный идентификатор на Android. Опционально, если запрос не из приложения
+        - name: idfa
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Рекламный идентификатор на iOS. Опционально, если запрос не из приложения
+        - name: bundle_id
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Bundle id / app package приложения. Опционально, если запрос не из приложения
+        - name: device_id
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Идентификатор устройства. Опционально, если запрос не из приложения
+        - name: app_version
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Версия приложения. Опционально, если запрос не из приложения
+        - name: sdk_version
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Версия SDK. Опционально, если запрос не из приложения
+        - name: os_name
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [ios, android]
+          description: Название ОС. Опционально, если запрос не из приложения
+        - name: os_version
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Версия ОС. Опционально, если запрос не из приложения
+        - name: connection_type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [2G, 3G, 4G, 5G, unknown]
+          description: Тип соединения. Опционально, если запрос не из приложения
       responses:
         '200':
           description: Реклама найдена
