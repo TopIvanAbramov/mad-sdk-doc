@@ -36,3 +36,5 @@ https://mads-serve.magnit.ru/
 ## Справочник API
 
 [!embed height="900"](/api-reference.html)
+
+[!button variant="primary" target="blank" text="Открыть полный справочник API"](/api-reference.html)
