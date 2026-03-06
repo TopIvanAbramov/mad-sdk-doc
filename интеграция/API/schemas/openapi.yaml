@@ -56,47 +56,127 @@ components:
           type: string
           description: Имя шаблона, реализующего UI отображение
         displayOptions:
-          $ref: '#/components/schemas/DisplayOptions'
+          description: UI-конфигурация на уровне блока (зависит от templateGroupName)
+          oneOf:
+            - $ref: '#/components/schemas/ModalWindowDisplayOptions'
+            - $ref: '#/components/schemas/MultiformatDisplayOptions'
+            - $ref: '#/components/schemas/StoriesDisplayOptions'
         items:
           type: array
           items:
-            $ref: '#/components/schemas/Creative'
-          description: Массив креативов
+            oneOf:
+              - $ref: '#/components/schemas/ModalWindowCreative'
+              - $ref: '#/components/schemas/MultiformatCreative'
+              - $ref: '#/components/schemas/StoriesCreative'
+          description: Массив креативов (структура зависит от templateGroupName)
         statistics:
           type: array
           items:
             $ref: '#/components/schemas/Statistic'
           description: Пиксели для всего блока
 
-    DisplayOptions:
+    ModalWindowDisplayOptions:
       type: object
-      description: UI-конфигурация (зависит от формата)
+      description: DisplayOptions для формата modalwindow
+      properties:
+        modalWindowCornerRadius:
+          type: integer
+          description: Радиус скругления верха модалки
+        backgroundColor:
+          type: string
+          description: Цвет заднего фона модалки
+
+    MultiformatDisplayOptions:
+      type: object
+      description: DisplayOptions для формата multiformat (баннерный блок)
       properties:
         size:
           $ref: '#/components/schemas/AspectRatio'
+          description: Соотношение сторон слайдов
         useAutoScroll:
           type: boolean
+          description: Включено ли автоперелистывание
         autoScrollTimeout:
           type: integer
           nullable: true
+          description: Время между автоперелистываниями (сек)
         useHeader:
           type: boolean
+          description: Использовать хедер над креативами
         cornerRadius:
           type: integer
+          description: Радиус скругления слайдов
         earsWidth:
           type: integer
+          description: Ширина ушей (видимых частей боковых баннеров)
         interItemSpacing:
           type: integer
+          description: Отступы между слайдами
         format:
           type: string
-        modalWindowCornerRadius:
-          type: integer
-        backgroundColor:
-          type: string
+          description: Формат (carousel)
 
-    Creative:
+    StoriesDisplayOptions:
       type: object
-      description: Креатив (зависит от templateGroupName)
+      description: DisplayOptions для формата stories (обложки)
+      properties:
+        defaultSlideDuration:
+          type: integer
+          description: Длительность показа слайда (сек)
+        coverBorderColor:
+          type: string
+          description: Цвет не просмотренной обложки
+        coverBorderViewedColor:
+          type: string
+          description: Цвет просмотренной обложки
+        coverCornerRadius:
+          type: integer
+          description: Скругление обложки и рамки
+        size:
+          $ref: '#/components/schemas/AspectRatio'
+          description: Соотношение сторон обложки
+        interItemSpacing:
+          type: integer
+          description: Расстояние между обложками
+
+    ModalWindowCreative:
+      type: object
+      description: Креатив для формата modalwindow (модалка)
+      required: [id, integrationType, statistics, contentType, content, markingInfo]
+      properties:
+        id:
+          type: string
+          description: Уникальный идентификатор объявления
+        integrationType:
+          type: string
+          enum: [sdk, native]
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+        contentType:
+          type: string
+          enum: [image, video]
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Image'
+            - $ref: '#/components/schemas/Video'
+        markingInfo:
+          $ref: '#/components/schemas/MarkingInfo'
+        title:
+          type: string
+          nullable: true
+        subtitle:
+          type: string
+          nullable: true
+        button:
+          $ref: '#/components/schemas/Button'
+          nullable: true
+
+    MultiformatCreative:
+      type: object
+      description: Креатив для формата multiformat (слайд карусели)
+      required: [id, integrationType, statistics, contentType, content, markingInfo]
       properties:
         id:
           type: string
@@ -119,15 +199,64 @@ components:
           $ref: '#/components/schemas/MarkingInfo'
         link:
           $ref: '#/components/schemas/Link'
+
+    StoriesCreative:
+      type: object
+      description: Креатив для формата stories (обложка со слайдами)
+      required: [id, integrationType, contentType, content, title, statistics, slides]
+      properties:
+        id:
+          type: string
+          description: Уникальный идентификатор объявления
+        integrationType:
+          type: string
+          enum: [sdk, native]
+        contentType:
+          type: string
+          enum: [image, video]
+        content:
+          $ref: '#/components/schemas/Image'
+          description: Контент обложки
         title:
           type: string
-          nullable: true
-        subtitle:
+          description: Заголовок под обложкой
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+        slides:
+          type: array
+          items:
+            $ref: '#/components/schemas/StorySlide'
+
+    StorySlide:
+      type: object
+      description: Слайд внутри stories-креатива
+      properties:
+        id:
+          type: integer
+          description: Порядковый номер слайда
+        isViewed:
+          type: boolean
+          description: Просмотрен ли слайд
+        contentType:
           type: string
-          nullable: true
+          enum: [image, video]
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Image'
+            - $ref: '#/components/schemas/Video'
         button:
           $ref: '#/components/schemas/Button'
           nullable: true
+          description: Кнопка действия (макс. 1 на слайд)
+        markingInfo:
+          $ref: '#/components/schemas/MarkingInfo'
+          nullable: true
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
 
     Statistic:
       type: object
