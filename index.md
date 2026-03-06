@@ -26,17 +26,17 @@ MADS — это омниканальная рекламная платформа
 
 | Платформа | Описание | Статус |
 |-----------|----------|--------|
-| [Android](интеграция/Mobile SDK/Android SDK/index.md) | Интеграция SDK в Android-приложение | ✅ Доступно |
-| [iOS](интеграция/Mobile SDK/iOS SDK/index.md) | Интеграция SDK в iOS-приложение | ✅ Доступно |
+| [Android](интеграция/mobile-sdk/android-sdk/) | Интеграция SDK в Android-приложение | ✅ Доступно |
+| [iOS](интеграция/mobile-sdk/ios-sdk/) | Интеграция SDK в iOS-приложение | ✅ Доступно |
 | [Web](web/index.md) | Установка JS-скрипта на сайт | 🔜 В разработке |
-| [API](интеграция/API/index.md) | Прямые запросы по pad_id | ✅ Доступно |
+| [API](интеграция/api/) | Прямые запросы по pad_id | ✅ Доступно |
 
 ## Структура документации
 
 - **[Начало работы](getting-started/index.md)** — базовая инструкция, способы интеграции
 - **[Ключевые концепции](concepts/index.md)** — Рекламные форматы, таргетирование, маркировка, статистика
 - **[Интеграция](интеграция/index.md)** — Mobile SDK, Web SDK, API
-- **[Android SDK](интеграция/Mobile SDK/Android SDK/index.md)** — Быстрый старт, In App, InLine, отладка
-- **[iOS SDK](интеграция/Mobile SDK/iOS SDK/index.md)** — Быстрый старт, In App, InLine, отладка
+- **[Android SDK](интеграция/mobile-sdk/android-sdk/)** — Быстрый старт, In App, InLine, отладка
+- **[iOS SDK](интеграция/mobile-sdk/ios-sdk/)** — Быстрый старт, In App, InLine, отладка
 - **[Web](web/index.md)** — Интеграция на сайт *(в разработке)*
 - **[Ресурсы](resources/index.md)** — Changelog, FAQ, глоссарий

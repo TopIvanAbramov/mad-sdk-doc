@@ -12,7 +12,7 @@ icon: plug
 
 | Способ | Описание | Документация |
 |--------|----------|--------------|
-| **Mobile SDK** | Android и iOS приложения | [Android SDK](Mobile SDK/Android SDK/index.md) | [iOS SDK](Mobile SDK/iOS SDK/index.md) |
+| **Mobile SDK** | Android и iOS приложения | [Android SDK](Mobile SDK/Android SDK/index.md) |[iOS SDK](Mobile SDK/iOS SDK/index.md) |
 | **Web SDK** | Веб-сайты | [Web](../web/index.md) |
 | **API** | Прямые запросы по pad_id | [API интеграция](API/index.md) |
 
