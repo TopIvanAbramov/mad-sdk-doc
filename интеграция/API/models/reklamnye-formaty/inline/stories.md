@@ -4,16 +4,12 @@ order: 20
 icon: image
 ---
 
-# Stories
-
-Формат `templateGroupName: "stories"`. Вертикальные карточки со слайдами.
-
 ## AdResponse
 
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `padId` | Int | Id рекламного плейсмента |
-| `templateGroupName` | String | Формат: `stories` |
+| `templateGroupName` | String | `stories` |
 | `templateName` | String | Имя шаблона, реализующего UI отображение |
 | `displayOptions` | DisplayOptions | UI-конфигурация для обложек |
 | `items` | [Creative] | Массив креативов (обложек со слайдами) |
@@ -26,7 +22,7 @@ icon: image
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `defaultSlideDuration` | Int | Длительность показа слайда (сек) |
-| `coverBorderColor` | String | Цвет обложки не просмотренной |
+| `coverBorderColor` | String | Цвет не просмотренной обложки |
 | `coverBorderViewedColor` | String | Цвет просмотренной обложки |
 | `coverCornerRadius` | Int | Скругление обложки и рамки |
 | `size` | AspectRatio | Соотношение сторон обложки |

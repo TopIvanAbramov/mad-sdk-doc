@@ -1,6 +1,6 @@
 {
   "version": "3.11.0",
-  "created": "2026-03-03T13:54:22Z",
+  "created": "2026-03-03T14:11:58Z",
   "files": [
     {
       "path": ".nojekyll"
@@ -273,7 +273,8 @@
       "old": true
     },
     {
-      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inapp/index.html"
+      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inapp/index.html",
+      "old": true
     },
     {
       "path": "интеграция/api/модели-данных/reklamnye-formaty/index.html",
@@ -288,14 +289,16 @@
       "old": true
     },
     {
-      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inline/multiformat/index.html"
+      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inline/multiformat/index.html",
+      "old": true
     },
     {
       "path": "интеграция/api/модели-данных/reklamnye-formaty/inline/stories/index.html",
       "old": true
     },
     {
-      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inline/stories/index.html"
+      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inline/stories/index.html",
+      "old": true
     },
     {
       "path": "интеграция/index.html"

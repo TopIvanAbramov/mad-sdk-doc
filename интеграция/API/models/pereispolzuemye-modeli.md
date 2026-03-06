@@ -100,5 +100,5 @@ icon: database
 
 | Поле | Тип | Описание |
 |------|-----|----------|
-| `type` | String | "Deeplink" или "External" |
+| `type` | String | "deeplink" или "external" |
 | `url` | String | URL |

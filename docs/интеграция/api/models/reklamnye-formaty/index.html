@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.825861259461">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.825862313158">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Рекламные форматы</title>
     <meta name="title" content="Рекламные форматы">
-    <meta name="description" content="Модели ответа API для каждого рекламного формата.">
+    <meta name="description" content="Модели ответа API для каждого рекламного формата. Описания соответствуют SDK-гайдам.">
 
     <!-- Canonical -->
     <link rel="canonical" href="/интеграция/API/models/reklamnye-formaty/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/интеграция/API/models/reklamnye-formaty/">
     <meta property="og:title" content="Рекламные форматы">
-    <meta property="og:description" content="Модели ответа API для каждого рекламного формата.">
+    <meta property="og:description" content="Модели ответа API для каждого рекламного формата. Описания соответствуют SDK-гайдам.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/интеграция/API/models/reklamnye-formaty/">
     <meta property="twitter:title" content="Рекламные форматы">
-    <meta property="twitter:description" content="Модели ответа API для каждого рекламного формата.">
+    <meta property="twitter:description" content="Модели ответа API для каждого рекламного формата. Описания соответствуют SDK-гайдам.">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../resources/css/retype.css?v=3.11.0.825861259461" rel="stylesheet">
+    <link href="../../../../resources/css/retype.css?v=3.11.0.825862313158" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.11.0.825861259461" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.11.0.825862313158" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.11.0.825861259461" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.11.0.825862313158" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -155,7 +155,52 @@
         <span>Рекламные форматы</span>
     </h1>
 </doc-anchor-target>
-<p>Модели ответа API для каждого рекламного формата.</p>
+<p>Модели ответа API для каждого рекламного формата. Описания соответствуют <a href="../../../../concepts/ad-formats/">SDK-гайдам</a>.</p>
+<doc-anchor-target id="templategroupname">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#templategroupname">#</doc-anchor-trigger>
+        <span>templateGroupName</span>
+    </h2>
+</doc-anchor-target>
+<p>Значение <code v-pre>templateGroupName</code> в ответе определяет формат и структуру данных:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Значение</th>
+<th>Формат</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>modalwindow</code></td>
+<td>InApp</td>
+<td>Диалоговое окно поверх экрана</td>
+</tr>
+<tr>
+<td><code v-pre>fulscreen</code></td>
+<td>InApp</td>
+<td>Полноэкранный (в будущем)</td>
+</tr>
+<tr>
+<td><code v-pre>multiformat</code></td>
+<td>InLine</td>
+<td>Карусель баннеров</td>
+</tr>
+<tr>
+<td><code v-pre>stories</code></td>
+<td>InLine</td>
+<td>Вертикальные карточки со слайдами</td>
+</tr>
+<tr>
+<td><code v-pre>clickout</code></td>
+<td>InLine</td>
+<td>Переход по клику на внешний ресурс или диплинк</td>
+</tr>
+</tbody>
+</table>
+</div>
 <doc-anchor-target id="in-app">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#in-app">#</doc-anchor-trigger>
@@ -163,7 +208,7 @@
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="inapp/">InApp (Modal Window)</a> — диалоговое окно поверх экрана</li>
+<li><a href="inapp/">InApp (Modal Window)</a> — всплывающие окна с изображением, кнопкой диплинка или промокодом</li>
 </ul>
 <doc-anchor-target id="inline">
     <h2>
@@ -171,10 +216,10 @@
         <span>InLine</span>
     </h2>
 </doc-anchor-target>
-<p>Встраиваемые блоки внутри контента.</p>
+<p>Встраиваемые блоки внутри контента приложения. Тип блока регулируется на стороне админки.</p>
 <ul>
-<li><a href="inline/multiformat/">Multiformat</a> — карусель баннеров</li>
-<li><a href="inline/stories/">Stories</a> — вертикальные карточки со слайдами</li>
+<li><a href="inline/multiformat/">Multiformat</a> — карусель баннеров с изображением и ссылкой</li>
+<li><a href="inline/stories/">Stories</a> — вертикальные карточки, аналог сторис в Telegram</li>
 </ul>
 
                                 

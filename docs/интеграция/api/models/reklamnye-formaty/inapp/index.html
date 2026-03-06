@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.825861259461">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.825862313158">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>InApp (Modal Window)</title>
     <meta name="title" content="InApp (Modal Window)">
-    <meta name="description" content="Формат templateGroupName: modalwindow. Диалоговое окно поверх экрана.">
+    <meta name="description" content="templateGroupName: modalwindow(в будущем: fulscreen)">
 
     <!-- Canonical -->
     <link rel="canonical" href="/интеграция/API/models/reklamnye-formaty/inapp/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/интеграция/API/models/reklamnye-formaty/inapp/">
     <meta property="og:title" content="InApp (Modal Window)">
-    <meta property="og:description" content="Формат templateGroupName: modalwindow. Диалоговое окно поверх экрана.">
+    <meta property="og:description" content="templateGroupName: modalwindow(в будущем: fulscreen)">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/интеграция/API/models/reklamnye-formaty/inapp/">
     <meta property="twitter:title" content="InApp (Modal Window)">
-    <meta property="twitter:description" content="Формат templateGroupName: modalwindow. Диалоговое окно поверх экрана.">
+    <meta property="twitter:description" content="templateGroupName: modalwindow(в будущем: fulscreen)">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../resources/css/retype.css?v=3.11.0.825861259461" rel="stylesheet">
+    <link href="../../../../../resources/css/retype.css?v=3.11.0.825862313158" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.11.0.825861259461" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../resources/js/config.js?v=3.11.0.825862313158" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.11.0.825861259461" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../resources/js/lunr.js?v=3.11.0.825862313158" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -155,7 +155,9 @@
         <span>InApp (Modal Window)</span>
     </h1>
 </doc-anchor-target>
-<p>Формат <code v-pre>templateGroupName: &quot;modalwindow&quot;</code>. Диалоговое окно поверх экрана.</p>
+<p><strong>templateGroupName:</strong> <code v-pre>modalwindow</code> (в будущем: <code v-pre>fulscreen</code>)</p>
+<p>In App Message — всплывающие окна внутри приложения, где можно разместить изображение, кнопку с диплинком или копирование промокода. Modal Window — диалоговое окно, появляющееся поверх текущего экрана пользователя. Помогает привлекать внимание и повышать конверсии прямо в интерфейсе приложения.</p>
+<p><em>Из <a href="../../../../../concepts/ad-formats/">SDK-гайда по форматам</a>:</em> цвета фона, кнопок и контента; скругления элементов; кастомные шрифты (в будущем).</p>
 <doc-anchor-target id="adresponse">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#adresponse">#</doc-anchor-trigger>
@@ -180,7 +182,7 @@
 <tr>
 <td><code v-pre>templateGroupName</code></td>
 <td>String</td>
-<td>Формат: <code v-pre>modalwindow</code> (в будущем: <code v-pre>fulscreen</code>)</td>
+<td><code v-pre>modalwindow</code> — модальное окно; <code v-pre>fulscreen</code> — полноэкранный (в будущем)</td>
 </tr>
 <tr>
 <td><code v-pre>templateName</code></td>

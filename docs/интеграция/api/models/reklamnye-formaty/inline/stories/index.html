@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.825861259461">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.825862313158">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Stories</title>
     <meta name="title" content="Stories">
-    <meta name="description" content="Формат templateGroupName: stories. Вертикальные карточки со слайдами.">
+    <meta name="description" content="templateGroupName: stories">
 
     <!-- Canonical -->
     <link rel="canonical" href="/интеграция/API/models/reklamnye-formaty/inline/stories/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/интеграция/API/models/reklamnye-formaty/inline/stories/">
     <meta property="og:title" content="Stories">
-    <meta property="og:description" content="Формат templateGroupName: stories. Вертикальные карточки со слайдами.">
+    <meta property="og:description" content="templateGroupName: stories">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="/интеграция/API/models/reklamnye-formaty/inline/stories/">
     <meta property="twitter:title" content="Stories">
-    <meta property="twitter:description" content="Формат templateGroupName: stories. Вертикальные карточки со слайдами.">
+    <meta property="twitter:description" content="templateGroupName: stories">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../../../../../resources/css/retype.css?v=3.11.0.825861259461" rel="stylesheet">
+    <link href="../../../../../../resources/css/retype.css?v=3.11.0.825862313158" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.11.0.825861259461" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.11.0.825862313158" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../../../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.11.0.825861259461" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.11.0.825862313158" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -155,7 +155,9 @@
         <span>Stories</span>
     </h1>
 </doc-anchor-target>
-<p>Формат <code v-pre>templateGroupName: &quot;stories&quot;</code>. Вертикальные карточки со слайдами.</p>
+<p><strong>templateGroupName:</strong> <code v-pre>stories</code></p>
+<p>Вертикальные полноэкранные карточки с контентом (текст, изображения, видео), последовательно показываемые поверх интерфейса и переключающиеся свайпами или тапами. Аналог сторис в Telegram. Каждая обложка содержит массив слайдов с медиа и опциональной кнопкой действия. Возвращаемый тип регулируется на стороне админки.</p>
+<p><em>Из <a href="../../../../../../concepts/ad-formats/">SDK-гайда по форматам</a>.</em></p>
 <doc-anchor-target id="adresponse">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#adresponse">#</doc-anchor-trigger>
@@ -180,7 +182,7 @@
 <tr>
 <td><code v-pre>templateGroupName</code></td>
 <td>String</td>
-<td>Формат: <code v-pre>stories</code></td>
+<td><code v-pre>stories</code> — вертикальные карточки со слайдами</td>
 </tr>
 <tr>
 <td><code v-pre>templateName</code></td>
@@ -195,7 +197,7 @@
 <tr>
 <td><code v-pre>items</code></td>
 <td>[Creative]</td>
-<td>Массив креативов (обложек)</td>
+<td>Массив креативов (обложек со слайдами)</td>
 </tr>
 <tr>
 <td><code v-pre>statistics</code></td>
@@ -284,7 +286,7 @@
 <tr>
 <td><code v-pre>contentType</code></td>
 <td>String</td>
-<td>&quot;image&quot; (gif — в будущем)</td>
+<td>&quot;image&quot;, &quot;video&quot;</td>
 </tr>
 <tr>
 <td><code v-pre>content</code></td>

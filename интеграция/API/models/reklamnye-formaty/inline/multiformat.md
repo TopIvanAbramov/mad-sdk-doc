@@ -4,16 +4,12 @@ order: 10
 icon: image
 ---
 
-# Multiformat
-
-Формат `templateGroupName: "multiformat"`. Карусель баннеров.
-
 ## AdResponse
 
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `padId` | Int | Id рекламного плейсмента |
-| `templateGroupName` | String | Формат: `multiformat` |
+| `templateGroupName` | String | `multiformat` |
 | `templateName` | String | Имя шаблона, реализующего UI отображение |
 | `displayOptions` | DisplayOptions | UI-конфигурация для баннерного блока |
 | `items` | [Creative] | Массив креативов (слайдов) |
@@ -26,13 +22,13 @@ icon: image
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `size` | AspectRatio | Соотношение сторон слайдов |
-| `useAutoScroll` | Bool | Автоперелистывание |
-| `autoScrollTimeout` | Int? | Время между автоперелистыванием (сек) |
+| `useAutoScroll` | Bool | Включено ли автоперелистывание |
+| `autoScrollTimeout` | Int? | Время между автоперелистываниями (сек) |
 | `useHeader` | Bool | Использовать хедер над креативами |
 | `cornerRadius` | Int | Радиус скругления слайдов |
 | `earsWidth` | Int | Ширина ушей (видимых частей боковых баннеров) |
 | `interItemSpacing` | Int | Отступы между слайдами |
-| `format` | String | "carousel", "1x1", "2x2", "2x1", "3x3" |
+| `format` | String | `carousel` |
 
 ## Creative (слайд)
 

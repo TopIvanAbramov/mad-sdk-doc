@@ -1,19 +1,15 @@
 ---
-label: InApp
+label: ModalWindow
 order: 10
 icon: browser
 ---
-
-# InApp (Modal Window)
-
-Формат `templateGroupName: "modalwindow"`. Диалоговое окно поверх экрана.
 
 ## AdResponse
 
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `padId` | Int | Id рекламного плейсмента |
-| `templateGroupName` | String | Формат: `modalwindow` (в будущем: `fulscreen`) |
+| `templateGroupName` | String | `modalwindow` |
 | `templateName` | String | Имя шаблона, реализующего UI отображение |
 | `displayOptions` | DisplayOptions | UI-конфигурация для модалок |
 | `items` | [Creative] | Массив креативов (модалок) |
@@ -26,7 +22,7 @@ icon: browser
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `modalWindowCornerRadius` | Int | Радиус скругления верха модалки |
-| `backgroundColor` | String | Цвет заднего фона |
+| `backgroundColor` | String | Цвет заднего фона модалки |
 
 ## Creative (модалка)
 
@@ -40,4 +36,4 @@ icon: browser
 | `markingInfo` | MarkingInfo | Маркировка |
 | `title` | String? | Заголовок |
 | `subtitle` | String? | Подзаголовок |
-| `button` | Button? | Кнопка (опционально) |
+| `button` | Button? | Кнопка |

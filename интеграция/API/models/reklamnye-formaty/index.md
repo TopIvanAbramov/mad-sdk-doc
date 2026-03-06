@@ -6,15 +6,14 @@ icon: image
 
 # Рекламные форматы
 
-Модели ответа API для каждого рекламного формата.
+Модели ответа API для каждого рекламного формата соответствуют аналогичным в MadSDK. Подробное описание [рекламных форматов](../../../../concepts/ad-formats.md).
 
-## In App
+## Как определить рекламный формат по ответу API?
 
-- [InApp (Modal Window)](inapp.md) — диалоговое окно поверх экрана
+Значение `templateGroupName` в ответе определяет формат и структуру данных
 
-## InLine
-
-Встраиваемые блоки внутри контента.
-
-- [Multiformat](inline/multiformat.md) — карусель баннеров
-- [Stories](inline/stories.md) — вертикальные карточки со слайдами
+| templateGroupName | Описание | Модели данных
+|----------|----------|----------|
+| `modalwindow` | Диалоговое окно поверх экрана | [Model](inapp/modalwindow.md) |
+| `multiformat` |  Карусель баннеров | [Model](inline/multiformat.md) |
+| `stories` | Сторисы | [Model](inline/stories.md) |
