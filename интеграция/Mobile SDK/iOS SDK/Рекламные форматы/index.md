@@ -10,5 +10,5 @@ icon: rows
 
 ## Содержание
 
-- [In App Message](In App Message/modal-window.md) — Modal Window, всплывающие рекламные окна
+- [In App Message](<In App Message/modal-window.md>) — Modal Window, всплывающие рекламные окна
 - [InLine](InLine/multiformat.md) — Multiformat, встраиваемые рекламные блоки

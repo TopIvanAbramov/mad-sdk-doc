@@ -47,6 +47,6 @@ MadsSDK.userId = "sample-user-id"
 
 ## Что дальше?
 
-- [In App Message (ModalWindow)](Рекламные форматы/In App Message/modal-window.md) — показ всплывающей рекламы
-- [InLine (Multiformat)](Рекламные форматы/InLine/multiformat.md) — встраивание рекламных блоков в контент
+- [In App Message (ModalWindow)](<Рекламные форматы/In App Message/modal-window.md>) — показ всплывающей рекламы
+- [InLine (Multiformat)](<Рекламные форматы/InLine/multiformat.md>) — встраивание рекламных блоков в контент
 - [Отладка](debugging.md) — тестирование интеграции
