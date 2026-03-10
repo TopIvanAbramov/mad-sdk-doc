@@ -14,10 +14,15 @@ icon: rocket
 
 ## Шаг 2. Запросите рекламу
 
+Базовый URL для запросов (API_BASE_URL)
+```bash
+https://mads-serve.magnit.ru
+```
+
 Вызовите эндпоинт получения рекламы:
 
 ```bash
-curl -X GET "https://mads-serve.magnit.ru/v1/ads/get?padId={YOUR_PAD_ID}&userId={USER_ID}"
+curl -X GET "[API_BASE_URL]/v1/ads/get?padId={YOUR_PAD_ID}&userId={USER_ID}"
 ```
 
 **Обязательные параметры:**
@@ -39,7 +44,7 @@ curl -X GET "https://mads-serve.magnit.ru/v1/ads/get?padId={YOUR_PAD_ID}&userId=
 | templateGroupName | Описание | Модель |
 |-------------------|----------|--------|
 | `modalwindow` | Модальное окно | [ModalWindow](models/reklamnye-formaty/inapp/modalwindow.md) |
-| `multiformat` | Карусель баннеров | [Multiformat](models/reklamnye-formaty/inline/multiformat.md) |
+| `multiformat` | Баннеры | [Multiformat](models/reklamnye-formaty/inline/multiformat.md) |
 | `stories` | Сторисы | [Stories](models/reklamnye-formaty/inline/stories.md) |
 
 Полные модели: [Модели данных](models/index.md) · [Справочник API](/api-reference.html)

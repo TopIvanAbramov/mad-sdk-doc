@@ -15,5 +15,5 @@ icon: image
 | templateGroupName | Описание | Модели данных
 |----------|----------|----------|
 | `modalwindow` | Диалоговое окно поверх экрана | [Model](inapp/modalwindow.md) |
-| `multiformat` |  Карусель баннеров | [Model](inline/multiformat.md) |
+| `multiformat` |  Баннеры | [Model](inline/multiformat.md) |
 | `stories` | Сторисы | [Model](inline/stories.md) |
