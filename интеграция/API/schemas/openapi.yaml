@@ -1,0 +1,494 @@
+openapi: 3.0.3
+info:
+  title: MADS API
+  description: API рекламной платформы MADS. Интеграция рекламы через REST API без использования SDK.
+  version: 1.0.0
+
+servers:
+  - url: https://mads-serve.magnit.ru
+    description: Production
+
+paths:
+  /v1/ads/get:
+    get:
+      summary: Получение рекламных форматов
+      description: Запрос рекламных креативов по идентификатору плейсмента (padId). API не требует авторизации.
+      operationId: getAds
+      parameters:
+        - name: padId
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: Идентификатор плейсмента
+        - name: userId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Ваш идентификатор пользователя
+        - name: gaid
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Рекламный идентификатор устройства Android
+        - name: idfa
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Рекламный идентификатор устройства iOS
+        - name: bundleId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: ID сборки (для отладки и контроля качества)
+        - name: deviceId
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Сгенерированный постоянный идентификатор устройства (используется, если невозможно отправить gaid/idfa)
+        - name: appVersion
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Версия вашего приложения
+        - name: sdkVersion
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Версия рекламного SDK
+        - name: osName
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Название операционной системы пользователя
+        - name: osVersion
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Версия операционной системы
+        - name: connectionType
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [wifi, 3g, 4g, 5g]
+          description: Тип подключения к интернету
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Тематическая или товарная категория внутри вашего приложения
+        - name: searchQuery
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Поисковый запрос внутри приложения или на сайте
+        - name: utcOffset
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Часовой пояс пользователя относительно UTC (в минутах)
+        - name: debugCreative
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Получить ли дебаг-креатив
+      responses:
+        '200':
+          description: Реклама найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdResponse'
+        '204':
+          description: Нет рекламы для показа
+        '400':
+          description: Неверные параметры
+
+components:
+  schemas:
+    AdResponse:
+      type: object
+      description: Общая структура ответа API для всех рекламных форматов
+      properties:
+        padId:
+          type: integer
+          description: Id рекламного плейсмента
+        templateGroupName:
+          type: string
+          enum: [modalwindow, fulscreen, multiformat, stories, clickout]
+          description: Формат рекламы
+        templateName:
+          type: string
+          description: Имя шаблона, реализующего UI отображение
+        displayOptions:
+          description: UI-конфигурация на уровне блока (зависит от templateGroupName)
+          oneOf:
+            - $ref: '#/components/schemas/ModalWindowDisplayOptions'
+            - $ref: '#/components/schemas/MultiformatDisplayOptions'
+            - $ref: '#/components/schemas/StoriesDisplayOptions'
+        items:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/ModalWindowCreative'
+              - $ref: '#/components/schemas/MultiformatCreative'
+              - $ref: '#/components/schemas/StoriesCreative'
+          description: Массив креативов (структура зависит от templateGroupName)
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+          description: Пиксели для всего блока
+
+    ModalWindowDisplayOptions:
+      type: object
+      description: DisplayOptions для формата modalwindow
+      properties:
+        modalWindowCornerRadius:
+          type: integer
+          description: Радиус скругления верха модалки
+        backgroundColor:
+          type: string
+          description: Цвет заднего фона модалки
+
+    MultiformatDisplayOptions:
+      type: object
+      description: DisplayOptions для формата multiformat (баннерный блок)
+      properties:
+        size:
+          $ref: '#/components/schemas/AspectRatio'
+          description: Соотношение сторон слайдов
+        useAutoScroll:
+          type: boolean
+          description: Включено ли автоперелистывание
+        autoScrollTimeout:
+          type: integer
+          nullable: true
+          description: Время между автоперелистываниями (сек)
+        useHeader:
+          type: boolean
+          description: Использовать хедер над креативами
+        cornerRadius:
+          type: integer
+          description: Радиус скругления слайдов
+        earsWidth:
+          type: integer
+          description: Ширина ушей (видимых частей боковых баннеров)
+        interItemSpacing:
+          type: integer
+          description: Отступы между слайдами
+        format:
+          type: string
+          description: Формат (carousel)
+
+    StoriesDisplayOptions:
+      type: object
+      description: DisplayOptions для формата stories (обложки)
+      properties:
+        defaultSlideDuration:
+          type: integer
+          description: Длительность показа слайда (сек)
+        coverBorderColor:
+          type: string
+          description: Цвет не просмотренной обложки
+        coverBorderViewedColor:
+          type: string
+          description: Цвет просмотренной обложки
+        coverCornerRadius:
+          type: integer
+          description: Скругление обложки и рамки
+        size:
+          $ref: '#/components/schemas/AspectRatio'
+          description: Соотношение сторон обложки
+        interItemSpacing:
+          type: integer
+          description: Расстояние между обложками
+
+    ModalWindowCreative:
+      type: object
+      description: Креатив для формата modalwindow (модалка)
+      required: [id, integrationType, statistics, contentType, content, markingInfo]
+      properties:
+        id:
+          type: string
+          description: Уникальный идентификатор объявления
+        integrationType:
+          type: string
+          enum: [sdk, native]
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+        contentType:
+          type: string
+          enum: [image, video]
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Image'
+            - $ref: '#/components/schemas/Video'
+        markingInfo:
+          $ref: '#/components/schemas/MarkingInfo'
+        title:
+          type: string
+          nullable: true
+        subtitle:
+          type: string
+          nullable: true
+        button:
+          $ref: '#/components/schemas/Button'
+          nullable: true
+
+    MultiformatCreative:
+      type: object
+      description: Креатив для формата multiformat (слайд карусели)
+      required: [id, integrationType, statistics, contentType, content, markingInfo]
+      properties:
+        id:
+          type: string
+          description: Уникальный идентификатор объявления
+        integrationType:
+          type: string
+          enum: [sdk, native]
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+        contentType:
+          type: string
+          enum: [image, video]
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Image'
+            - $ref: '#/components/schemas/Video'
+        markingInfo:
+          $ref: '#/components/schemas/MarkingInfo'
+        link:
+          $ref: '#/components/schemas/Link'
+
+    StoriesCreative:
+      type: object
+      description: Креатив для формата stories (обложка со слайдами)
+      required: [id, integrationType, contentType, content, title, statistics, slides]
+      properties:
+        id:
+          type: string
+          description: Уникальный идентификатор объявления
+        integrationType:
+          type: string
+          enum: [sdk, native]
+        contentType:
+          type: string
+          enum: [image, video]
+        content:
+          $ref: '#/components/schemas/Image'
+          description: Контент обложки
+        title:
+          type: string
+          description: Заголовок под обложкой
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+        slides:
+          type: array
+          items:
+            $ref: '#/components/schemas/StorySlide'
+
+    StorySlide:
+      type: object
+      description: Слайд внутри stories-креатива
+      properties:
+        id:
+          type: integer
+          description: Порядковый номер слайда
+        isViewed:
+          type: boolean
+          description: Просмотрен ли слайд
+        contentType:
+          type: string
+          enum: [image, video]
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Image'
+            - $ref: '#/components/schemas/Video'
+        button:
+          $ref: '#/components/schemas/Button'
+          nullable: true
+          description: Кнопка действия (макс. 1 на слайд)
+        markingInfo:
+          $ref: '#/components/schemas/MarkingInfo'
+          nullable: true
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statistic'
+
+    Statistic:
+      type: object
+      description: Статистический пиксель для отслеживания событий
+      properties:
+        url:
+          type: string
+          description: URL пикселя
+        type:
+          type: string
+          description: Тип пикселя (impression, click и др.)
+        value:
+          type: integer
+          nullable: true
+          description: Время в секундах
+        pvalue:
+          type: integer
+          nullable: true
+          description: Время в процентах от duration
+        viewablePercent:
+          type: integer
+          nullable: true
+          description: Процент вхождения в область видимости
+
+    MarkingInfo:
+      type: object
+      description: Информация о маркировке рекламы
+      properties:
+        labelText:
+          type: string
+          description: Текст элемента (Реклама, Соц. реклама)
+        orgInfo:
+          type: string
+          description: Информация о рекламодателе
+        url:
+          type: string
+          description: Ссылка в кнопке
+        buttonText:
+          type: string
+          description: Текст на кнопке в маркировочной модалке
+        description:
+          type: string
+          description: Текст над информацией о рекламодателе
+        displayOptions:
+          $ref: '#/components/schemas/MarkingDisplayOptions'
+
+    MarkingDisplayOptions:
+      type: object
+      properties:
+        backgroundColor:
+          type: string
+          description: Цвет фона для лейбла
+        textColor:
+          type: string
+          description: Цвет текста
+
+    AspectRatio:
+      type: object
+      properties:
+        width:
+          type: integer
+          description: Ширина
+        height:
+          type: integer
+          description: Высота
+
+    Image:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL изображения
+        size:
+          $ref: '#/components/schemas/AspectRatio'
+
+    Video:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL видео
+        size:
+          $ref: '#/components/schemas/AspectRatio'
+        bitrate:
+          type: integer
+          description: Битрейт
+        format:
+          type: string
+          description: Формат (mp4)
+        duration:
+          type: integer
+          description: Длительность в миллисекундах
+
+    Button:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Тип кнопки (cta, customAction и др.)
+        subType:
+          type: string
+          description: Подтип (rich, promocodeCopy и др.)
+        text:
+          type: string
+          maxLength: 30
+          description: Текст кнопки
+        model:
+          $ref: '#/components/schemas/ButtonContent'
+        displayOptions:
+          $ref: '#/components/schemas/ButtonDisplayOptions'
+
+    ButtonDisplayOptions:
+      type: object
+      properties:
+        textColor:
+          type: string
+          description: Цвет текста в HEX
+        backgroundColor:
+          type: string
+          description: Цвет фона в HEX
+        cornerRadius:
+          type: integer
+          description: Скругление кнопки
+
+    ButtonContent:
+      type: object
+      description: LinkButton или PromocodeButton
+      oneOf:
+        - type: object
+          properties:
+            link:
+              $ref: '#/components/schemas/Link'
+        - type: object
+          properties:
+            promocode:
+              type: string
+            onCopyText:
+              type: string
+              description: Текст кнопки после копирования
+            alertText:
+              type: string
+              nullable: true
+              description: Текст алерта
+
+    Link:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [deeplink, external]
+          description: Тип ссылки
+        url:
+          type: string
+          description: URL

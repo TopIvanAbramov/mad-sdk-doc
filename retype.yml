@@ -1,4 +1,16 @@
 output: ./docs
 
+generator:
+  recase: none
+
+exclude:
+  - class-descriptions.md
+  - /inapp.md
+  - /stories.md
+  - /multiformat.md
+  - "интеграция/API/API рекламной платформы/простановка-атрибутов-пользователя.md"
+
 branding:
-  title: Mad SDK
+  title: MADS
+  logo: mads.png
+

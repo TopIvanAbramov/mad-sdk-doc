@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.826439831884">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.12.0">
+
+    <!-- Primary Meta Tags -->
+    <title>ModalWindow</title>
+    <meta name="title" content="ModalWindow">
+    <meta name="description" content="In App Message — это всплывающие окна внутри приложения. Подробнее о формате — в разделе Рекламные форматы">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/In-App-Message/modal-window/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/In-App-Message/modal-window/">
+    <meta property="og:title" content="ModalWindow">
+    <meta property="og:description" content="In App Message — это всплывающие окна внутри приложения. Подробнее о формате — в разделе Рекламные форматы">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/In-App-Message/modal-window/">
+    <meta property="twitter:title" content="ModalWindow">
+    <meta property="twitter:description" content="In App Message — это всплывающие окна внутри приложения. Подробнее о формате — в разделе Рекламные форматы">
+
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
+
+    <link href="../../../../../../resources/css/retype.css?v=3.12.0.826439831884" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../../../../resources/js/config.js?v=3.12.0.826439831884" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../../../resources/js/retype.js?v=3.12.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../../../resources/js/lunr.js?v=3.12.0.826439831884" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../../../../resources/js/prism.js?v=3.12.0.826439831884" defer></script>
+</head>
+<body>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+        <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+    
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="retype-branding-logo" href="../../../../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../../../../mads.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../../../../mads.png">
+                            </span>
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">MADS</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav id="retype-header-nav" class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            
+                        </ul>
+                    </nav>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="retype-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+    
+        <div id="retype-container" class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+            
+                <div class="flex items-center h-16 px-6">
+                    <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-none focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                    <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 bg-body-bg">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="retype-markdown" id="retype-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="retype-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="modalwindow" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#modalwindow">#</doc-anchor-trigger>
+        <span>ModalWindow</span>
+    </h1>
+</doc-anchor-target>
+<p>In App Message — это всплывающие окна внутри приложения. Подробнее о формате — в разделе <a href="../../../../concepts/ad-formats.md">Рекламные форматы</a>.</p>
+<doc-anchor-target id="1-инициализация-загрузчика">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-инициализация-загрузчика">#</doc-anchor-trigger>
+        <span>1. Инициализация загрузчика</span>
+    </h2>
+</doc-anchor-target>
+<p>Загрузчик рекламы <code translate="no" v-pre>InAppAdLoader</code> позволяет предзагружать рекламу прежде, чем взаимодействие пользователя с приложением будет прервано показом рекламы.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">import MadsSDK
+
+private let loader = InAppAdLoader()
+private var loadedInAppAd: InAppAd?</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="2-загрузка-рекламы">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-загрузка-рекламы">#</doc-anchor-trigger>
+        <span>2. Загрузка рекламы</span>
+    </h2>
+</doc-anchor-target>
+<p>Подпишитесь на состояние загрузчика через делегат:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">loader.delegate = self</code></pre>
+</doc-codeblock></div>
+<p>Реализуйте протокол:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">extension ViewController: InAppAdLoaderDelegate {
+    func inAppAdLoader(_ loader: any InAppAdLoaderProtocol, didChangeState state: InAppAdLoader.State) {
+        switch state {
+        case let .loaded(inAppAd):
+            break
+        case let .failed(inAppAdLoadError):
+            break
+        }
+    }
+}</code></pre>
+</doc-codeblock></div>
+<p>При загрузке рекламы необходимо передавать <code translate="no" v-pre>padId</code>, который можно получить в рекламной админке либо от менеджера. Для отладки можно использовать тестовые <code translate="no" v-pre>padId</code> (см. <a href="../../../debugging.md">Отладка</a>).</p>
+<p>Вызовите метод <code translate="no" v-pre>InAppAdLoader#load</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">loader.load(
+    padId: 1,
+    targetings: [
+        &quot;some_targeting&quot;: &quot;value&quot;
+    ],
+    isDebugCreativeEnabled: false
+)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="параметры-запроса">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#параметры-запроса">#</doc-anchor-trigger>
+        <span>Параметры запроса</span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th style="text-align: center;">Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>padId</code></td>
+<td><code translate="no" v-pre>Int</code></td>
+<td style="text-align: center;"><span class="docs-emoji">&#x2705;</span></td>
+<td>Id места размещения</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>targetings</code></td>
+<td><code translate="no" v-pre>[String: String]</code></td>
+<td style="text-align: center;"><span class="docs-emoji">&#x2705;</span></td>
+<td>Словарь таргетингов для персонализации рекламы</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>isDebugCreativeEnabled</code></td>
+<td><code translate="no" v-pre>Bool</code></td>
+<td style="text-align: center;"><span class="docs-emoji">&#x274C;</span></td>
+<td>Загрузка дебаг-креативов (по умолчанию: <code translate="no" v-pre>false</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="3-таргетирование">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-таргетирование">#</doc-anchor-trigger>
+        <span>3. Таргетирование</span>
+    </h2>
+</doc-anchor-target>
+<p>Передайте словарь таргетингов при загрузке рекламы. Подробнее о таргетингах — в разделе <a href="../../../../concepts/targeting.md">Таргетирование</a>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">let targetings: [String: String] = [&quot;gender&quot;: &quot;female&quot;]
+ 
+loader.load(
+    padId: 1, 
+    targetings: targetings
+)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="4-показ-рекламы">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-показ-рекламы">#</doc-anchor-trigger>
+        <span>4. Показ рекламы</span>
+    </h2>
+</doc-anchor-target>
+<p>Для показа загруженной рекламы передайте текущий <code translate="no" v-pre>UIViewController</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">MadsSDK.showInAppAd(
+  inAppAd,
+  inVC: self
+)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="параметры-показа">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#параметры-показа">#</doc-anchor-trigger>
+        <span>Параметры показа</span>
+    </h3>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th style="text-align: center;">Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>_ ad</code></td>
+<td><code translate="no" v-pre>InAppAd</code></td>
+<td style="text-align: center;"><span class="docs-emoji">&#x2705;</span></td>
+<td>Загруженное рекламное объявление</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>viewController</code></td>
+<td><code translate="no" v-pre>UIViewController</code></td>
+<td style="text-align: center;"><span class="docs-emoji">&#x2705;</span></td>
+<td>UIViewController, поверх которого покажется модальное окно</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>uiConfig</code></td>
+<td><code translate="no" v-pre>UIConfiguration</code></td>
+<td style="text-align: center;"><span class="docs-emoji">&#x274C;</span></td>
+<td>UI конфигурация для кастомизации (по умолчанию: <code translate="no" v-pre>.default</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="5-кастомизация-ui-modal-window">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-кастомизация-ui-modal-window">#</doc-anchor-trigger>
+        <span>5. Кастомизация UI (Modal Window)</span>
+    </h2>
+</doc-anchor-target>
+<p>Для кастомизации внешнего вида модального окна задайте параметры через <code translate="no" v-pre>UIConfiguration</code>:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code translate="no" v-pre>backgroundColor</code></td>
+<td><code translate="no" v-pre>Color</code></td>
+<td>Цвет фона диалога с рекламой</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>primaryColor</code></td>
+<td><code translate="no" v-pre>Color</code></td>
+<td>Цвет кнопки с диплинком</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>primaryButtonContentColor</code></td>
+<td><code translate="no" v-pre>Color</code></td>
+<td>Цвет контента на кнопке с диплинком</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>secondaryColor</code></td>
+<td><code translate="no" v-pre>Color</code></td>
+<td>Цвет кнопки с промокодом</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>secondaryButtonContentColor</code></td>
+<td><code translate="no" v-pre>Color</code></td>
+<td>Цвет контента на кнопке с промокодом</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>loaderColor</code></td>
+<td><code translate="no" v-pre>Color</code></td>
+<td>Цвет прогресс-бара</td>
+</tr>
+<tr>
+<td><code translate="no" v-pre>cornerRadius</code></td>
+<td><code translate="no" v-pre>CGFloat</code></td>
+<td>Скругления кнопок</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Цвет можно указать через hex-строку (<code translate="no" class="whitespace-nowrap" v-pre>#ff0000<span class="color-preview-display ml-color-preview-margin-left border border-color-preview-border rounded-full h-color-preview-height w-color-preview-width" style="background-color:#ff0000;"></span></code>) или <code translate="no" v-pre>UIColor</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">public enum Color {
+    case hex(String)
+    case uiColor(UIColor)
+}</code></pre>
+</doc-codeblock></div>
+<p>Пример кастомизации:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">let uiConfig = UIConfiguration(
+    primaryColor: .uiColor(UIColor.red),
+    secondaryColor: .uiColor(UIColor.grey),
+    cornerRadius: 15
+)
+
+MadsSDK.showInAppAd(
+    inAppAd,
+    inVC: self,
+    uiConfig: uiConfig
+)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="6-реакция-на-события">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-реакция-на-события">#</doc-anchor-trigger>
+        <span>6. Реакция на события</span>
+    </h2>
+</doc-anchor-target>
+<p>Подпишитесь на события рекламного объекта через делегат:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">inAppAd.delegate = self
+self.inAppAd = inAppAd</code></pre>
+</doc-codeblock></div>
+<p>Реализуйте протокол:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-swift"><code v-pre class="language-swift">extension ViewController: InAppAdDelegate {
+    func inAppAd(_ ad: InAppAd, didEmit event: InAppAd.Event) {
+        switch event {
+        case .shown:
+            break
+        case .failedToShow:
+            break
+        case let .deeplinkClicked(uRL):
+            break // необходимо обработать открытие диплинка
+        case let .promocodeClicked(promocode)
+            break
+        case .dismissed:
+            break
+        }
+    }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="пример">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#пример">#</doc-anchor-trigger>
+        <span>Пример</span>
+    </h2>
+</doc-anchor-target>
+<p>Полный пример интеграции In App рекламы — в <a href="https://github.com/magnit-tech/mads-ios-sdk">репозитории на GitHub</a>.</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer id="retype-content-footer" class="clear-both">
+                            
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../../../интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                                <span class="block mt-1">Рекламные форматы</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../../../интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/InLine/multiformat/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                                <span class="block mt-1">Multiformat</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="retype-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "ModalWindow", level: 6, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

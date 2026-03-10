@@ -1,0 +1,502 @@
+{
+  "version": "3.12.0",
+  "created": "2026-03-10T06:37:15Z",
+  "files": [
+    {
+      "path": ".nojekyll"
+    },
+    {
+      "path": "404.html"
+    },
+    {
+      "path": "android/debugging/index.html",
+      "old": true
+    },
+    {
+      "path": "android/in-app/index.html",
+      "old": true
+    },
+    {
+      "path": "android/inapp-preview.png",
+      "old": true
+    },
+    {
+      "path": "android/index.html",
+      "old": true
+    },
+    {
+      "path": "android/inline-preview.png",
+      "old": true
+    },
+    {
+      "path": "android/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "android/quickstart/index.html",
+      "old": true
+    },
+    {
+      "path": "android/stories.png",
+      "old": true
+    },
+    {
+      "path": "concepts/ad-formats/index.html"
+    },
+    {
+      "path": "concepts/ad-labeling/index.html"
+    },
+    {
+      "path": "concepts/analytics/index.html"
+    },
+    {
+      "path": "concepts/inapp-preview.png"
+    },
+    {
+      "path": "concepts/index.html"
+    },
+    {
+      "path": "concepts/marking-info.png"
+    },
+    {
+      "path": "concepts/multiformat-preview.png"
+    },
+    {
+      "path": "concepts/stories.png"
+    },
+    {
+      "path": "concepts/targeting/index.html"
+    },
+    {
+      "path": "getting-started/index.html"
+    },
+    {
+      "path": "getting-started/integration-ways/index.html"
+    },
+    {
+      "path": "getting-started/publishers-guide/index.html"
+    },
+    {
+      "path": "inapp/index.html",
+      "old": true
+    },
+    {
+      "path": "index.html"
+    },
+    {
+      "path": "ios/debugging/index.html",
+      "old": true
+    },
+    {
+      "path": "ios/in-app/index.html",
+      "old": true
+    },
+    {
+      "path": "ios/inapp-preview.png",
+      "old": true
+    },
+    {
+      "path": "ios/index.html",
+      "old": true
+    },
+    {
+      "path": "ios/inline-preview.png",
+      "old": true
+    },
+    {
+      "path": "ios/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "ios/linking.png",
+      "old": true
+    },
+    {
+      "path": "ios/package.png",
+      "old": true
+    },
+    {
+      "path": "ios/quickstart/index.html",
+      "old": true
+    },
+    {
+      "path": "ios/stories.png",
+      "old": true
+    },
+    {
+      "path": "mads.png"
+    },
+    {
+      "path": "multiformat/index.html",
+      "old": true
+    },
+    {
+      "path": "package-lock.json"
+    },
+    {
+      "path": "package.json"
+    },
+    {
+      "path": "resources/changelog/index.html"
+    },
+    {
+      "path": "resources/css/retype.css"
+    },
+    {
+      "path": "resources/faq/index.html"
+    },
+    {
+      "path": "resources/fonts/Inter-italic-latin-var.woff2"
+    },
+    {
+      "path": "resources/fonts/Inter-roman-latin-var.woff2"
+    },
+    {
+      "path": "resources/glossary/index.html"
+    },
+    {
+      "path": "resources/index.html"
+    },
+    {
+      "path": "resources/js/config.js"
+    },
+    {
+      "path": "resources/js/lunr.js"
+    },
+    {
+      "path": "resources/js/prism.js"
+    },
+    {
+      "path": "resources/js/retype.js"
+    },
+    {
+      "path": "resources/js/search.json"
+    },
+    {
+      "path": "resources/lunr.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/mermaid.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/prism.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/retype.js.LICENSE.txt"
+    },
+    {
+      "path": "resources/retype.LICENSE.txt"
+    },
+    {
+      "path": "robots.txt"
+    },
+    {
+      "path": "sitemap.xml.gz"
+    },
+    {
+      "path": "stories/index.html",
+      "old": true
+    },
+    {
+      "path": "vercel.json"
+    },
+    {
+      "path": "web/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/ad-formats/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/api-reference/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/api-reference/index.html"
+    },
+    {
+      "path": "интеграция/api/api-рекламной-платформы/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/API-рекламной-платформы/index.html"
+    },
+    {
+      "path": "интеграция/api/api-рекламной-платформы/отправка-взаимодействия-с-рекламой/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/API-рекламной-платформы/отправка-взаимодействия-с-рекламой/index.html"
+    },
+    {
+      "path": "интеграция/api/api-рекламной-платформы/получение-рекламных-форматов/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/API-рекламной-платформы/получение-рекламных-форматов/index.html"
+    },
+    {
+      "path": "интеграция/api/api-рекламной-платформы/простановка-атрибутов-пользователя/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/index.html"
+    },
+    {
+      "path": "интеграция/api/models/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/models/index.html"
+    },
+    {
+      "path": "интеграция/API/models/obshchiy-otvet/index.html"
+    },
+    {
+      "path": "интеграция/API/models/pereispolzuemye-modeli/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/inapp/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/inapp/modalwindow/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/inline/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/inline/multiformat/index.html"
+    },
+    {
+      "path": "интеграция/API/models/reklamnye-formaty/inline/stories/index.html"
+    },
+    {
+      "path": "интеграция/api/модели-данных/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/obshchiy-otvet/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/pereispolzuemye-modeli/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/reklamnye-formaty/inapp/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inapp/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/reklamnye-formaty/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/reklamnye-formaty/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/reklamnye-formaty/inline/multiformat/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inline/multiformat/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/api/модели-данных/reklamnye-formaty/inline/stories/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/Модели-данных/reklamnye-formaty/inline/stories/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/API/справочник-api/index.html"
+    },
+    {
+      "path": "интеграция/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/debugging/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/debugging/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/in-app/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/in-app/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/inapp-preview.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/inapp-preview.png"
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/inline-preview.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/inline-preview.png"
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/quickstart/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/quickstart/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/android-sdk/stories.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/stories.png"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/Рекламные-форматы/In-App-Message/modal-window/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/Рекламные-форматы/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/Android-SDK/Рекламные-форматы/InLine/multiformat/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/debugging/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/debugging/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/in-app/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/in-app/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/inapp-preview.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/inapp-preview.png"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/inline-preview.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/inline-preview.png"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/inline/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/linking.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/linking.png"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/package.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/package.png"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/quickstart/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/quickstart/index.html"
+    },
+    {
+      "path": "интеграция/mobile-sdk/ios-sdk/stories.png",
+      "old": true
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/stories.png"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/In-App-Message/modal-window/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/index.html"
+    },
+    {
+      "path": "интеграция/Mobile-SDK/iOS-SDK/Рекламные-форматы/InLine/multiformat/index.html"
+    },
+    {
+      "path": "интеграция/sdk/android-sdk/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/sdk/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/sdk/ios-sdk/index.html",
+      "old": true
+    },
+    {
+      "path": "интеграция/Web/index.html"
+    }
+  ]
+}
