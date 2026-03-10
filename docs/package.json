@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "retypeapp": "^3.11.0"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^1.25.0",
+    "serve": "^14.2.0"
+  },
+  "scripts": {
+    "build:api": "npx @redocly/cli build-docs интеграция/API/schemas/openapi.yaml -o docs/api-reference.html --title \"MADS API Reference\" --config redocly.yaml",
+    "build": "retype build && npm run build:api",
+    "serve": "npx serve docs -l 5000",
+    "start": "npm run build && npm run serve"
   }
 }
