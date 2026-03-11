@@ -16,7 +16,7 @@ order: 80
 ## Содержание
 
 - [Быстрый старт](quickstart.md) — Установка, инициализация, идентификация пользователя
-- [Рекламные форматы](Рекламные форматы/) — In App Message (ModalWindow), InLine (Multiformat)
+- [Рекламные форматы](<Рекламные форматы/index.md>) — In App Message (ModalWindow), InLine (Multiformat)
 - [Отладка](debugging.md) — Тестирование и отладка интеграции
 
 ## Пример
