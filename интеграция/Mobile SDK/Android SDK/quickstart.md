@@ -10,28 +10,21 @@ icon: rocket
 
 ## 1. Добавление зависимостей
 
-Временно SDK поставляется в виде архива с локальным Maven-репозиторием, который нужно разархивировать в любой удобной директории (например внутри директории проекта по пути `./maven/mads`).
+Перед началом интеграции необходимо добавить зависимость от SDK в нужные модули проекта:
 
-Затем SDK можно подключать в любой модуль проекта:
 ```kotlin
 repositories {
-    maven {
-        // адрес директории с разархивированным Maven-репозиторием
-        url = uri("$rootDir/maven/mads")
-    }
+    mavenCentral()
 }
 
 dependencies {
-    implementation("ru.tander.mads:integration:0.0.1")
+    implementation("ru.magnit.mads.mobile:android-sdk:0.0.1")
 }
 ```
 
-> [!NOTE]
-> Позже SDK будет поставляться через общедоступный Maven-репозиторий.
-
 ## 2. Инициализация SDK
 
-Инициализацию SDK необходимо выполнить после старта приложения, вызвав метод `Mads#init`:
+Инициализацию SDK необходимо выполнить после старта приложения, вызвав метод `Mads.init(...)`:
 
 ```kotlin
 import ru.tander.mads.Mads
@@ -39,16 +32,7 @@ import ru.tander.mads.Mads
 class DemoApplication : Application() {
 
     override fun onCreate() {
-        Mads.init(
-            context = this,
-            openLinkHandler = ::openLink,
-        )
-    }
-
-    private fun openLink(link: String) {
-        Intent(Intent.ACTION_VIEW, link.toUri())
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            .let(::startActivity)
+        Mads.init(this)
     }
 }
 ```
