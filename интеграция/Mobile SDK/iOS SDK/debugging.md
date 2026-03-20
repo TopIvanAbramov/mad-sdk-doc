@@ -12,7 +12,7 @@ icon: bug
 
 ```swift
 loader.load(
-    padId: 1,                    // отладочный padId 
+    padId: 67,                    // отладочный padId 
     isDebugCreativeEnabled: true // включаем загрузку тестового креатива
 )
 ```

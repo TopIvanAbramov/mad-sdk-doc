@@ -7,7 +7,7 @@ order: 90
 
 In App Message — это всплывающие окна внутри приложения. Подробнее о формате — в разделе [Рекламные форматы](../../../../../concepts/ad-formats.md).
 
-## 1. Инициализация загрузчика
+## 1. Загрузка рекламы
 
 Загрузчик рекламы `InAppAdLoader` позволяет предзагружать рекламу прежде, чем взаимодействие пользователя с приложением будет прервано показом рекламы.
 
@@ -17,8 +17,6 @@ import MadsSDK
 private let loader = InAppAdLoader()
 private var loadedInAppAd: InAppAd?
 ```
-
-## 2. Загрузка рекламы
 
 Подпишитесь на состояние загрузчика через делегат:
 
@@ -33,7 +31,7 @@ extension ViewController: InAppAdLoaderDelegate {
     func inAppAdLoader(_ loader: any InAppAdLoaderProtocol, didChangeState state: InAppAdLoader.State) {
         switch state {
         case let .loaded(inAppAd):
-            break
+            self.loadedInAppAd = inAppAd
         case let .failed(inAppAdLoadError):
             break
         }
@@ -47,7 +45,7 @@ extension ViewController: InAppAdLoaderDelegate {
 
 ```swift
 loader.load(
-    padId: 1,
+    padId: "1",
     targetings: [
         "some_targeting": "value"
     ],
@@ -59,11 +57,11 @@ loader.load(
 
 | Параметр | Тип | Обязательный | Описание |
 |----------|-----|:---:|----------|
-| `padId` | `Int` | ✅ | Id места размещения |
+| `padId` | `String` | ✅ | Id места размещения |
 | `targetings` | `[String: String]` | ✅ | Словарь таргетингов для персонализации рекламы |
 | `isDebugCreativeEnabled` | `Bool` | ❌ | Загрузка дебаг-креативов (по умолчанию: `false`) |
 
-## 3. Таргетирование
+## 2. Таргетирование
 
 Передайте словарь таргетингов при загрузке рекламы. Подробнее о таргетингах — в разделе [Таргетирование](../../../../../concepts/targeting.md).
 
@@ -76,16 +74,36 @@ loader.load(
 )
 ```
 
-## 4. Показ рекламы
+## 3. Обработка результата запроса и показ загруженной рекламы
 
-Для показа загруженной рекламы передайте текущий `UIViewController`:
+Обработайте результат загрузки рекламы:
 
 ```swift
-MadsSDK.showInAppAd(
-  inAppAd,
-  inVC: self
-)
+extension ViewController: InAppAdLoaderDelegate {
+    func inAppAdLoader(_ loader: any InAppAdLoaderProtocol, didChangeState state: InAppAdLoader.State) {
+        switch state {
+        case let .loaded(inAppAd):
+            // Для показа загруженной рекламы передайте текущий `UIViewController`:
+            MadsSDK.showInAppAd(
+                inAppAd,
+                inVC: self
+            )
+        case let .failed(inAppAdLoadError):
+            // Запрос за рекламой завершился с ошибой.
+            break
+        }
+    }
+}
 ```
+
+
+### Возможные состояния
+
+| Тип значения                | Параметры                                   | Описание                                                                                    |
+|-----------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------|
+| `Loaded`   | `inAppAd` - загруженная реклама | Реклама загружена успешно. Отобразить загруженную рекламу можно вызвав `MadsSDK.showInAppAd(...)`. |
+| `Failed` | `error` - причина ошибки загрузки рекламы                                          | Загрузка рекламы завершилась ошибкой..                     |
+| `NoContent`   | -  | Состояние добавится в будущих версиях SDK              
 
 ### Параметры показа
 
@@ -95,7 +113,11 @@ MadsSDK.showInAppAd(
 | `viewController` | `UIViewController` | ✅ | UIViewController, поверх которого покажется модальное окно |
 | `uiConfig` | `UIConfiguration` | ❌ | UI конфигурация для кастомизации (по умолчанию: `.default`) |
 
-## 5. Кастомизация UI (Modal Window)
+## 4. Кастомизация UI (Modal Window)
+
+> [!TIP]
+> Кастомизация будет удалена из настроек и вынесена в ответ сервера в будущих версия SDK. Кастомизировать рекламу можно будет в админ панели.
+
 
 Для кастомизации внешнего вида модального окна задайте параметры через `UIConfiguration`:
 
@@ -134,7 +156,9 @@ MadsSDK.showInAppAd(
 )
 ```
 
-## 6. Реакция на события
+## 5. Реакция на события
+
+SDK не реагирует на действия пользвателя на рекламном объявлении (такие как "нажатие на кнопку" и т.д.). Реакцию на эти действия необходимо реализовать на стороне интегрирующего приложения:
 
 Подпишитесь на события рекламного объекта через делегат:
 
@@ -163,6 +187,19 @@ extension ViewController: InAppAdDelegate {
     }
 }
 ```
+
+### Возможные значения InAppAd.Event
+
+| Тип значения                           | Параметры                                                                                                                                                        | Описание                                |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `InAppAd.Event.deeplinkClicked`    | `url` - ссылка, по которой необходимо осуществить переход    | Нажатие на кнопку перехода по ссылке
+| `InAppAd.Event.promocodeClicked` | `promocode` - промокод, который необходимо скопировать         | Нажатие на кнопку копирования промокода |
+| `InAppAd.Event.showm` |   -  | Показ рекламного объявления |
+| `InAppAd.Event.dismissed` |   -   | Скрытие рекламного объявления |
+
+> [!TIP]
+> В будущих версиях SDK Actions vs Events будут разделены аналогично android. Actions - обязательны к обработке на интегрирующей стороне, Event - необязательные
+
 
 ## Пример
 
