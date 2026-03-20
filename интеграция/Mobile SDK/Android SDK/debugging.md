@@ -14,7 +14,7 @@ icon: bug
 import ru.tander.mads.inapp.loading.InAppAdRequest
 
 val inAppAdRequest = InAppAdRequest(
-    padId = 1,            // отладочный padId
+    padId = 44,            // отладочный padId
     debugCreative = true, // включаем загрузку тестового креатива
 )
 ```

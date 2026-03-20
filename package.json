@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "retype": "^0.2.0",
     "retypeapp": "^3.11.0"
   },
   "devDependencies": {

@@ -7,17 +7,7 @@ order: 90
 
 In App Message — это всплывающие окна внутри приложения. Подробнее о формате — в разделе [Рекламные форматы](../../../../../concepts/ad-formats.md).
 
-## 1. Инициализация загрузчика
-
-Загрузчик рекламы `InAppAdLoader` позволяет предзагружать рекламу прежде, чем взаимодействие пользователя с приложением будет прервано показом рекламы.
-
-```kotlin
-import ru.tander.mads.Mads
-
-val loader = Mads.inAppAdLoader()
-```
-
-## 2. Загрузка рекламы
+## 1. Загрузка рекламы
 
 При загрузке рекламы необходимо передавать `padId`, который можно получить в рекламной админке либо от менеджера. Для отладки можно использовать тестовые `padId` (см. [Отладка](../../debugging.md)).
 
@@ -25,38 +15,56 @@ val loader = Mads.inAppAdLoader()
 import ru.tander.mads.inapp.loading.InAppAdRequest
 
 val inAppAdRequest = InAppAdRequest(
-    padId = 1,             // идентификатор места показа рекламы
+    padId = "1",             // идентификатор места показа рекламы
     debugCreative = false, // true — если нужно загрузить отладочный рекламный креатив
     targetings = emptyMap(), // параметры таргетингов
 )
 ```
 
-Для старта загрузки вызовите метод `InAppAdLoader#load`:
+Для загрузки вызовите suspend-функцию `Mads.inApp.load(...)`:
 
 ```kotlin
-loader.load(
-    adRequest = inAppAdRequest,
-    onSuccess = { inAppAd ->
-        // реклама загружена
-    },
-    onFailure = { failure ->
-        // произошла ошибка загрузки рекламы
-    },
-)
+import ru.tander.mads.Mads
+
+val inAppAdResponse = Mads.inApp.load(inAppAdRequest)
+```
+
+Простановка таймаутов загрузки рекламы:
+```kotlin
+withTimeout(10_000L) {
+    Mads.inApp.load(...)
+}
+```
+
+Отмена загрузки рекламы:
+```kotlin
+val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+
+val job = scope.launch {
+    try {
+        Mads.inApp.load(...)  // загрузка рекламы
+    } catch (e: CancellationException) {
+        println("Load cancelled")
+        // Cleanup if needed
+    }
+}
+
+// Cancel anytime:
+job.cancel()  // Отменяет загрузку рекламы
 ```
 
 ### Параметры запроса
 
 | Параметр | Тип | Обязательный | Описание |
 |----------|-----|:---:|----------|
-| `padId` | `Int` | ✅ | Id места размещения |
+| `padId` | `String` | ✅ | Id места размещения |
 | `targetings` | `Map<String, String>` | ✅ | Словарь таргетингов для персонализации рекламы |
 | `debugCreative` | `Boolean` | ❌ | Загрузка дебаг-креативов (по умолчанию: `false`) |
 
 > [!TIP]
-> Один `InAppAdLoader` может параллельно загружать несколько рекламных объявлений. Для отмены всех загрузок вызовите `loader.clear()`. После этого загрузчик можно использовать повторно.
+> Параллельно можно загружать несколько рекламных объявлений. Для отмены загрузки достаточно остановить работу `CoroutineScope`, в контексте которого была вызвана suspend-функция `Mads.inApp.load(...)`.
 
-## 3. Таргетирование
+## 2. Таргетирование
 
 Передайте словарь таргетингов при загрузке рекламы. Подробнее о таргетингах — в разделе [Таргетирование](../../../../../concepts/targeting.md).
 
@@ -70,100 +78,121 @@ val inAppAdRequest = InAppAdRequest(
     targetings = targetings,
 )
 
-loader.load(
-    adRequest = inAppAdRequest,
-    onSuccess = { inAppAd ->
-        // реклама загружена
-    },
-    onFailure = { failure ->
-        // произошла ошибка загрузки рекламы
-    },
-)
+val inAppAdResponse = Mads.inApp.load(inAppAdRequest)
 ```
 
-## 4. Показ рекламы
+## 3. Обработка результата запроса и показ загруженной рекламы
 
-Для показа загруженной рекламы вызовите метод `Mads#showInAppAd`:
+Обработайте результат загрузки рекламы:
 
 ```kotlin
-import ru.tander.mads.Mads
+import ru.tander.mads.inapp.loading.InAppAdResponse
 
-Mads.showInAppAd(
-    activity = this,
-    ad = inAppAd,
-    tag = "main_screen_promo",
-    colors = InAppAdColors(),
-)
+when (inAppAdResponse) {
+    is InAppAdResponse.Success -> {
+        // Для показа загруженной рекламы передайте текущую `Activity` 
+        inAppAdResponse.content.show(activity = ...)
+    }
+    is InAppAdResponse.NoContent -> {
+        // Запрос за рекламой завершился без ошибок, но реклама не была подобрана.
+    }
+    is InAppAdResponse.Failure -> {
+        // Запрос за рекламой завершился с ошибой.
+    }
+}
 ```
 
-### Параметры показа
+### Возможные состояния
 
-| Параметр | Тип | Обязательный | Описание |
-|----------|-----|:---:|----------|
-| `activity` | `Activity` | ✅ | Activity, внутри которой покажется рекламное объявление |
-| `ad` | `InAppAd` | ✅ | Загруженное рекламное объявление |
-| `tag` | `String` | ✅ | Уникальный тег места размещения. Нужен для сохранения работы коллбеков при смене конфигурации. Принцип аналогичен [Activity Result](https://developer.android.com/training/basics/intents/result) |
-| `colors` | `InAppAdColors` | ❌ | Цветовая схема рекламного объявления (по умолчанию: стандартная) |
+| Тип значения                | Параметры                                   | Описание                                                                                    |
+|-----------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------|
+| `Success`   | `content` - контент для отображения рекламы | Реклама загружена успешно. Отобразить загруженную рекламу можно вызвав `content.show(...)`. |
+| `Failure` | `reason` - причина ошибки загрузки рекламы                                          | Загрузка рекламы завершилась ошибкой.                     |
+| `NoContent`   |  - | Запрос за рекламой завершился без ошибок, но реклама не была подобрана.    |
 
-## 5. Кастомизация UI (Modal Window)
+## 4. Кастомизация UI (Modal Window)
 
-Для кастомизации внешнего вида модального окна можно задать цвета и скругления через `InAppAdColors`:
+> [!TIP]
+> Кастомизация удалена из настроек и вынесена в ответ сервера. Кастомизировать рекламу можно будет в админ панели.
 
-| Свойство | Описание |
-|----------|----------|
-| `backgroundColor` | Цвет фона диалога с рекламой |
-| `primaryButtonColor` | Цвет фона кнопки с диплинком |
-| `primaryButtonContentColor` | Цвет контента на кнопке с диплинком |
-| `secondaryButtonColor` | Цвет фона кнопки с промокодом |
-| `secondaryButtonContentColor` | Цвет контента на кнопке с промокодом |
-| `loaderColor` | Цвет прогресс-бара |
-| `cornerRadius` | Скругления кнопок *(в процессе реализации)* |
+
+## 5. Реакция на действия пользователя
+
+SDK не реагирует на действия пользвателя на рекламном объявлении (такие как "нажатие на кнопку" и т.д.). Реакцию на эти действия необходимо реализовать на стороне интегрирующего приложения:
 
 ```kotlin
-Mads.showInAppAd(
-    activity = this,
-    ad = inAppAd,
-    tag = "main_screen_promo",
-    colors = InAppAdColors(), // UI конфиг
-)
-```
+import ru.tander.mads.inapp.showing.InAppAdShowingAction
 
-## 6. Реакция на события
+when (inAppAdResponse) {
 
-Если приложению нужно отслеживать события показа рекламы, вызовите `Mads#subscribeToInAppAdShowingEvents`:
+    is InAppAdResponse.Success -> {
 
-```kotlin
-import ru.tander.mads.Mads
-import ru.tander.mads.inapp.showing.events.InAppAdShowingEventsCallback
+        inAppAdResponse.content.actions
+            .onEach(::handleInAppAdShowingAction)
+            .launchIn(...)
 
-val inAppAdShowingEventsCallback = object : InAppAdShowingEventsCallback {
-
-    // вызывается при показе объявления
-    fun onAdShown() { ... }
-
-    // вызывается при ошибке показа объявления
-    fun onAdFailedToShow(failure: Throwable) { ... }
-
-    // вызывается при скрытии объявления
-    fun onAdDismissed() { ... }
-
-    // вызывается при нажатии на кнопку диплинка
-    fun onAdDeeplinkButtonClicked(deeplink: String) { ... }
-
-    // вызывается при нажатии на кнопку промокода
-    fun onAdCopyPromoCodeButtonClicked(promoCode: String) { ... }
+        inAppAdResponse.content.show(activity = ...)
+    }
+    ...
 }
 
-val subscription = Mads.subscribeToInAppAdShowingEvents(
-    tag = "main_screen_promo",
-    callback = inAppAdShowingEventsCallback,
-)
+fun handleInAppAdShowingAction(action: InAppAdShowingAction) {
+    when (action) {
+        is InAppAdShowingAction.OnUrlClicked -> {
+            openUrl(action.type, action.url) // открытие ссылки при нажатии на кнопку на рекламном объявлении
+        }
+        is InAppAdShowingAction.OnPromocodeCopy -> {
+            applyPromoCode(action.promocode) // применение промокода при нажатии на кнопку на рекламном объявлении
+        }
+    }
+}
 ```
 
-Для отмены подписки:
+### Возможные значения InAppAdShowingAction
+
+| Тип значения                           | Параметры                                                                                                                                                        | Описание                                |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `InAppAdShowingAction.OnUrlClicked`    | `adInfo` - инфомация о рекламном объявлении<br>`type` - тип ссылки (напр. "web", "deeplink" и т.д.)<br>`url` - ссылка, по которой необходимо осуществить переход | Нажатие на кнопку перехода по ссылке    |
+| `InAppAdShowingAction.OnPromocodeCopy` | `adInfo` - инфомация о рекламном объявлении<br>`promocode` - промокод, который необходимо скопировать                                                            | Нажатие на кнопку копирования промокода |
+
+## 6. Реакция на события показа рекламы
+
+При необходимости приложение может отслеживать события показа рекламы, используя `InAppAdContent.events`:
+
 ```kotlin
-subscription.cancel()
+import ru.tander.mads.inapp.showing.InAppAdShowingEvent
+
+when (inAppAdResponse) {
+
+    is InAppAdResponse.Success -> {
+
+        inAppAdResponse.content.events
+            .onEach(::handleInAppAdShowingEvents)
+            .launchIn(...)
+
+        inAppAdResponse.content.show(activity = ...)
+    }
+    ...
+}
+
+fun handleInAppAdShowingEvent(event: InAppAdShowingEvent) {
+    when (action) {
+        is InAppAdShowingEvent.OnCreativeView -> {
+            // объявление показано
+        }
+        is InAppAdShowingEvent.OnCreativeDismissed -> {
+            // объявление скрыто
+        }
+    }
+}
 ```
+
+### Возможные значения InAppAdShowingEvent
+
+| Тип значения                              | Параметры                                   | Описание                      |
+|-------------------------------------------|---------------------------------------------|-------------------------------|
+| `InAppAdShowingEvent.OnCreativeView`      | `adInfo` - инфомация о рекламном объявлении | Показ рекламного объявления   |
+| `InAppAdShowingEvent.OnCreativeDismissed` | `adInfo` - инфомация о рекламном объявлении | Скрытие рекламного объявления |
 
 ## Пример
 
