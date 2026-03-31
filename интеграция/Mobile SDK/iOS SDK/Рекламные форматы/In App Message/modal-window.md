@@ -28,13 +28,13 @@ loader.delegate = self
 Вызовите `loader.load(...)`:
 
 ```swift
-loader.load(
-    InAppAdRequest(
-        padId: "1",
-        targetings: ["some_targeting": "value"],
-        isDebugCreativeEnabled: false
-    )
+let request = InAppAdRequest(
+    padId: "1",
+    targetings: ["some_targeting": "value"],
+    isDebugCreativeEnabled: false
 )
+
+loader.load(request)
 ```
 
 Отмена загрузки:
