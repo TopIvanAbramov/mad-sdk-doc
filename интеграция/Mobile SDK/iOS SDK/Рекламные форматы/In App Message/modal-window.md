@@ -62,6 +62,19 @@ let request = InAppAdRequest(
 let response = await MadsSDK.inApp.load(request)
 ```
 
+Простановка таймаута загрузки рекламы:
+
+```swift
+let task = Task {
+    await MadsSDK.inApp.load(request)
+}
+
+Task {
+    try? await Task.sleep(for: .seconds(10))
+    task.cancel()
+}
+```
+
 Отмена загрузки:
 
 ```swift
@@ -165,6 +178,15 @@ case let .noContent(slot):
 | `Failure` | `error` — причина ошибки, `slot` — информация о размещении | Загрузка рекламы завершилась ошибкой. |
 | `NoContent` | `slot` — информация о размещении | Запрос завершился без ошибок, но реклама не была подобрана. |
 
+### Возможные ошибки загрузки (InAppAdLoadError)
+
+| Тип значения | Описание |
+|--------------|----------|
+| `network` | Ошибка сети при загрузке рекламы |
+| `sdkNotInitialized` | SDK не инициализирован |
+| `adLoad` | Не удалось загрузить рекламу |
+| `cancelled` | Загрузка рекламы отменена |
+
 > [!TIP]
 > Параметр `viewController` в `MadsSDK.showInAppAd(_:inVC:)` является опциональным. Если не указан — SDK определяет хост-контроллер автоматически.
 
@@ -263,6 +285,14 @@ for await event in inAppAd.events {
 | `InAppAd.Event.onCreativeView` | `info` — информация о рекламном объявлении | Показ рекламного объявления |
 | `InAppAd.Event.onCreativeFailedToShow` | `info` — информация о рекламном объявлении | Не удалось показать объявление |
 | `InAppAd.Event.onCreativeDismissed` | `info` — информация о рекламном объявлении<br>`type` — способ закрытия | Скрытие рекламного объявления |
+
+### Возможные значения DismissType
+
+| Тип значения | Описание |
+|--------------|----------|
+| `close` | Тап по кнопке закрытия (крестик) |
+| `closeSwipe` | Свайп вниз |
+| `closeOutsideClick` | Тап вне модалки (на overlay) |
 
 > [!TIP]
 > Actions (действия пользователя) обязательны к обработке на интегрирующей стороне. Events (события показа) — информационные и необязательные.
